@@ -14,6 +14,7 @@ public class ass : MonoBehaviour
         //mega gayyy
         //total man
         //ass
+        //ja
     }
 
     // Update is called once per frame
