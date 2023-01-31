@@ -8,6 +8,9 @@ public class ass : MonoBehaviour
     void Start()
     {
         //rull gay
+        //ja hahha
+        //ezzzz
+        
     }
 
     // Update is called once per frame
