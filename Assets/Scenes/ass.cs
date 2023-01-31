@@ -10,6 +10,7 @@ public class ass : MonoBehaviour
         //rull gay
         //ja hahha
         //ezzzz
+        //fuck rull
         
     }
 
