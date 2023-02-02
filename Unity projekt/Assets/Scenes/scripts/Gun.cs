@@ -7,6 +7,7 @@ public class Gun : MonoBehaviour
     private int magazineSize = 30;
     public int ammoLeft;
     public bool reloading;
+    public GameObject bullet;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,27 +24,33 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && reloading == false && ammoLeft > 0)
         {
             ammoLeft = ammoLeft - 1;
-            //Instantiate
+            Instantiate(bullet, transform.position, bullet.transform.rotation);
+            Debug.Log("SHOOTING");
         }
 
 
 
     }
 
-    private void Reload()
+    
+    public void Reload()
     {
-        if (Input.GetKeyDown(KeyCode.R)) //ammoLeft < magazineSize && reloading = false) 
+        if (Input.GetKeyDown(KeyCode.R) && ammoLeft < magazineSize && reloading == false) 
         {
             reloading = true;
-
-            ammoLeft = magazineSize;
-            reloading = false;
+            StartCoroutine(ReloadWait());
             Debug.Log("RELOADING");
         }
 
         
     }
+    IEnumerator ReloadWait()
+    {
+        yield return new WaitForSeconds(2);
+        ammoLeft = magazineSize;
+    }
+
 }
