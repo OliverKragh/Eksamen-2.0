@@ -62,8 +62,9 @@
     <Compile Include="Assets\Scenes\ass.cs" />
     <Compile Include="Assets\Import\Player\Supercyan Character Pack Free Sample\Scripts\DemoFree.cs" />
     <Compile Include="Assets\Import\Player\Supercyan Character Pack Free Sample\Scripts\SimpleSampleCharacterControl.cs" />
-    <Compile Include="Assets\Import\Player\Supercyan Character Pack Free Sample\Scripts\FreeCameraLogic.cs" />
     <Compile Include="Assets\Scenes\scripts\CameraController.cs" />
+    <Compile Include="Assets\Import\Player\Supercyan Character Pack Free Sample\Scripts\FreeCameraLogic.cs" />
+    <Compile Include="Assets\Scenes\scripts\Gun.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Import\Map\Supercyan Free Forest Sample\Shaders\Legacy\CelShader.shader" />
