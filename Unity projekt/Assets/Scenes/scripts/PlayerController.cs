@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //movement
-private float speed = 2.0f;
+
+public float horizontalInput;
+public float verticalInput;
+private float speed = 20;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,29 +20,20 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         
+        
     }
 
     private void Movement()
     {
-
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.position += Vector3.right * speed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.position += Vector3.left * speed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.position += Vector3.forward * speed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.position += Vector3.back * speed * Time.deltaTime;
+        horizontalInput = Input.GetAxis("Horizontal");
+        transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
+       
+        verticalInput = Input.GetAxis("Vertical");
+        transform.Translate(Vector3.up * Time.deltaTime * speed * horizontalInput);
 
 
-        }
+
+
     }
 
 
