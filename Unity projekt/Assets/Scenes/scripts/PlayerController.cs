@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     //KEYBOARD MOVEMENT
     public float horizontalInput;
     public float verticalInput;
-    private float speed = 20;
+    private float speed = 3;
 
 
     //

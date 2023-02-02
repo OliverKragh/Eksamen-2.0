@@ -353,11 +353,15 @@
 "Assets/Import/Player/Supercyan Character Pack Free Sample/Scripts/DemoFree.cs"
 "Assets/Import/Player/Supercyan Character Pack Free Sample/Scripts/FreeCameraLogic.cs"
 "Assets/Import/Player/Supercyan Character Pack Free Sample/Scripts/SimpleSampleCharacterControl.cs"
+"Assets/Import/Zombie/Supercyan Character Pack Zombie Sample/Scripts/ZombieCameraLogic.cs"
+"Assets/Import/Zombie/Supercyan Character Pack Zombie Sample/Scripts/ZombieCharacterControl.cs"
+"Assets/Import/Zombie/Supercyan Character Pack Zombie Sample/Scripts/ZombieFree.cs"
 "Assets/Scenes/ass.cs"
 "Assets/Scenes/scripts/CameraController.cs"
 "Assets/Scenes/scripts/Gun.cs"
 "Assets/Scenes/scripts/PlayerController.cs"
 "Assets/Scenes/scripts/SpawnManager.cs"
+"Assets/Scenes/scripts/WaveSpawner.cs"
 "Assets/Scenes/scripts/Zombie.cs"
 -langversion:9.0
 
