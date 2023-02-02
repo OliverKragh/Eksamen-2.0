@@ -38,10 +38,19 @@ public class Gun : MonoBehaviour
     
     public void Reload()
     {
-        if (Input.GetKeyDown(KeyCode.R) && ammoLeft < magazineSize && reloading == false) 
+        //RELOAD UDEN TOMT MAG
+        if (Input.GetKeyDown(KeyCode.R) && ammoLeft < magazineSize && !ammoLeft == 0 && reloading == false) 
         {
             reloading = true;
             StartCoroutine(ReloadWait());
+            Debug.Log("RELOADING");
+        }
+
+        //RELOAD TOMT MAG
+        if (Input.GetKeyDown(KeyCode.R) && ammoLeft == 0  && reloading == false) 
+        {
+            reloading = true;
+            StartCoroutine(ReloadWaitEmpty());
             Debug.Log("RELOADING");
         }
 
@@ -49,8 +58,15 @@ public class Gun : MonoBehaviour
     }
     IEnumerator ReloadWait()
     {
+        yield return new WaitForSeconds(1);
+        ammoLeft = magazineSize;
+        Debug.Log("RELOAD COMPLETE")
+    }
+    IEnumerator ReloadWaitEmpty()
+    {
         yield return new WaitForSeconds(2);
         ammoLeft = magazineSize;
+        Debug.Log("RELOAD COMPLETE")
     }
 
 }
