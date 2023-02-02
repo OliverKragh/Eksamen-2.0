@@ -5,15 +5,15 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638107659357482726
-    m_Hash: 1421907397
+      ticks: 638107681049381419
+    m_Hash: 755808496
   m_LockFileStatus:
     m_FilePath: C:/Users/TOHA/Documents/GitHub/Eksamen-2.0/Unity projekt/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638109202035992988
+      ticks: 638109181881000734
     m_Hash: 623110053
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -2968,7 +2968,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: 
+  type: asset
   description: "The Profile Analyzer tool supports the standard Unity Profiler. You
     can use it to analyze multiple frames and multiple data sets of the CPU data
     in the Profiler.\n\nMain features: \n\u25AA Multi-frame analysis of a single
@@ -2991,8 +2991,10 @@ m_ResolvedPackages:
     - 1.1.0-pre.2
     - 1.1.0
     - 1.1.1
+    - 1.2.2
     compatible:
     - 1.1.1
+    - 1.2.2
     verified: 1.1.1
   dependencies: []
   resolvedDependencies: []
@@ -3005,7 +3007,7 @@ m_ResolvedPackages:
     isDefault: 1
     capabilities: 7
     configSource: 0
-  hideInEditor: 1
+  hideInEditor: 0
   isAssetStorePackage: 0
   datePublishedTicks: 637705021060000000
   documentationUrl: 

@@ -354,6 +354,7 @@
 "Assets/Import/Player/Supercyan Character Pack Free Sample/Scripts/FreeCameraLogic.cs"
 "Assets/Import/Player/Supercyan Character Pack Free Sample/Scripts/SimpleSampleCharacterControl.cs"
 "Assets/Scenes/ass.cs"
+"Assets/Scenes/scripts/CameraController.cs"
 "Assets/Scenes/scripts/PlayerController.cs"
 "Assets/Scenes/scripts/SpawnManager.cs"
 "Assets/Scenes/scripts/Zombie.cs"
