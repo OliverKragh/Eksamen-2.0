@@ -39,7 +39,7 @@ public class Gun : MonoBehaviour
     public void Reload()
     {
         //RELOAD UDEN TOMT MAG
-        if (Input.GetKeyDown(KeyCode.R) && ammoLeft < magazineSize && !ammoLeft == 0 && reloading == false) 
+        if (Input.GetKeyDown(KeyCode.R) && ammoLeft < magazineSize && ammoLeft > 0 && reloading == false) 
         {
             reloading = true;
             StartCoroutine(ReloadWait());
