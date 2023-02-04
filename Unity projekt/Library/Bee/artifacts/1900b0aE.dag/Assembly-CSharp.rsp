@@ -356,6 +356,7 @@
 "Assets/Import/Zombie/Supercyan Character Pack Zombie Sample/Scripts/ZombieCharacterControl.cs"
 "Assets/Import/Zombie/Supercyan Character Pack Zombie Sample/Scripts/ZombieFree.cs"
 "Assets/Scenes/ass.cs"
+"Assets/Scenes/scripts/Bullet.cs"
 "Assets/Scenes/scripts/CameraController.cs"
 "Assets/Scenes/scripts/Gun.cs"
 "Assets/Scenes/scripts/PlayerController.cs"

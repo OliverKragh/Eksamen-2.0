@@ -17,28 +17,8 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
-        
-    }
-
-    public void Shoot()
-    {
-        if (Input.GetMouseButton(0) && reloading == false && ammoLeft > 0)
-        {
-            ammoLeft = ammoLeft - 1;
-            Instantiate(bullet, transform.position, bullet.transform.rotation);
-            Debug.Log("SHOOTING");
-        }
-
-
-
-    }
-
-    
-    public void Reload()
-    {
-        //RELOAD UDEN TOMT MAG
+        //reload
+     //RELOAD UDEN TOMT MAG
         if (Input.GetKeyDown(KeyCode.R) && ammoLeft < magazineSize && ammoLeft > 0 && reloading == false) 
         {
             reloading = true;
@@ -54,19 +34,51 @@ public class Gun : MonoBehaviour
             Debug.Log("RELOADING");
         }
 
+
+        //shoot
+        if (Input.GetMouseButtonDown(0) && reloading == false && ammoLeft > 0)
+        {
+            ammoLeft = ammoLeft - 1;
+           // Instantiate(bullet, transform.position, bullet.transform.rotation);
+            Debug.Log("SHOOTING");
+        } 
+        
+        if (ammoLeft == 0)
+        {
+            Debug.Log("OUT OF AMMO");
+        }
+
+    }
+
+    public void Shoot()
+    {
+       
+
+
+
+    }
+
+    
+    public void Reload()
+    {
+        
+
         
     }
     IEnumerator ReloadWait()
     {
         yield return new WaitForSeconds(1);
         ammoLeft = magazineSize;
-        Debug.Log("RELOAD COMPLETE")
+        reloading = false;
+        Debug.Log("RELOAD COMPLETE");
+        
     }
     IEnumerator ReloadWaitEmpty()
     {
         yield return new WaitForSeconds(2);
         ammoLeft = magazineSize;
-        Debug.Log("RELOAD COMPLETE")
+        reloading = false;
+        Debug.Log("RELOAD COMPLETE");
     }
 
 }
