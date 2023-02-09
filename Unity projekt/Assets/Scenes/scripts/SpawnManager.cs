@@ -6,7 +6,8 @@ public class SpawnManager : MonoBehaviour
 {
     public List<Enemy> enemies = new List<Enemy>();
     public int currWave;
-    public int enemyAntal;
+    public float enemyAntal;
+   
     private int waveValue;
     public List<GameObject> enemiesToSpawn = new List<GameObject>();
 //enemy list antal
