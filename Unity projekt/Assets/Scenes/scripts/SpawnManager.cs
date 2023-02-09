@@ -6,10 +6,11 @@ public class SpawnManager : MonoBehaviour
 {
     public List<Enemy> enemies = new List<Enemy>();
     public int currWave;
+    public int enemyAntal;
     private int waveValue;
     public List<GameObject> enemiesToSpawn = new List<GameObject>();
-    public List<enemyAntal> enemiesAntal = new List<enemyAntal>();
 //enemy list antal
+    public List<enemyAntal> antalEnemys ();
     public Transform[] spawnLocation;
     public int spawnIndex;
 
