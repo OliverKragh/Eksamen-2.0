@@ -18,6 +18,8 @@ public class WaveSpawner : MonoBehaviour
     private float spawnInterval;
     private float spawnTimer;
 
+    public int antalE;
+
     public List<GameObject> spawnedEnemies = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
@@ -87,7 +89,7 @@ public class WaveSpawner : MonoBehaviour
         //  -> if we have no points left, leave the loop
 
         List<GameObject> generatedEnemies = new List<GameObject>();
-        while (waveValue > 0 || generatedEnemies.Count < 50)
+        while (waveValue > 0 || generatedEnemies.Count <antalE)
         {
             int randEnemyId = Random.Range(0, enemies.Count);
             int randEnemyCost = enemies[randEnemyId].cost;
