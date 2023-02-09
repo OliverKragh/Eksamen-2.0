@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    // Start is called before the first frame update
+    
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
 
     public List<Enemy> enemies = new List<Enemy>();
     public int currWave;
     private int waveValue;
-
-    private float antalEnemy;
     public List<GameObject> enemiesToSpawn = new List<GameObject>();
 
     public Transform[] spawnLocation;
@@ -19,6 +26,7 @@ public class SpawnManager : MonoBehaviour
     private float waveTimer;
     private float spawnInterval;
     private float spawnTimer;
+    private float antalEnemy;
 
     public List<GameObject> spawnedEnemies = new List<GameObject>();
     // Start is called before the first frame update
@@ -78,13 +86,28 @@ public class SpawnManager : MonoBehaviour
 
     public void GenerateEnemies()
     {
+        // Create a temporary list of enemies to generate
+        // 
+        // in a loop grab a random enemy 
+        // see if we can afford it
+        // if we can, add it to our list, and deduct the cost.
+
+        // repeat... 
+
+        //  -> if we have no points left, leave the loop
 
         List<GameObject> generatedEnemies = new List<GameObject>();
         while (waveValue > 0 || generatedEnemies.Count < antalEnemy)
         {
             int randEnemyId = Random.Range(0, enemies.Count);
-            
-            if (waveValue <= 0)
+            int randEnemyCost = enemies[randEnemyId].cost;
+
+            if (waveValue - randEnemyCost >= 0)
+            {
+                generatedEnemies.Add(enemies[randEnemyId].enemyPrefab);
+                waveValue -= randEnemyCost;
+            }
+            else if (waveValue <= 0)
             {
                 break;
             }
@@ -99,6 +122,5 @@ public class SpawnManager : MonoBehaviour
 public class Enemy
 {
     public GameObject enemyPrefab;
-    
+    public int cost;
 }
-

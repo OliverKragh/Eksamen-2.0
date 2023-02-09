@@ -107,11 +107,3 @@ public class WaveSpawner : MonoBehaviour
     }
 
 }
-
-[System.Serializable]
-public class Enemy
-{
-    public GameObject enemyPrefab;
-    public int cost;
-}
-
