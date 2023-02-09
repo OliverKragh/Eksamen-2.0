@@ -658,7 +658,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2139679762}
-  - component: {fileID: 2139679761}
+  - component: {fileID: 2139679763}
   m_Layer: 0
   m_Name: Wave spawner
   m_TagString: Untagged
@@ -666,32 +666,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2139679761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2139679760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3244711a263d45c488d281a0865fe515, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemies:
-  - enemyPrefab: {fileID: 5579858665803529359, guid: d189733d65ee5f544bc765db4e8960ef, type: 3}
-    cost: 0
-  currWave: 0
-  enemiesToSpawn:
-  - {fileID: 5579858665803529359, guid: d189733d65ee5f544bc765db4e8960ef, type: 3}
-  spawnLocation:
-  - {fileID: 2139679762}
-  - {fileID: 2038408881}
-  - {fileID: 352636836}
-  - {fileID: 1306813062}
-  spawnIndex: 0
-  waveDuration: 10
-  spawnedEnemies: []
 --- !u!4 &2139679762
 Transform:
   m_ObjectHideFlags: 0
@@ -707,6 +681,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2139679763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139679760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62c8a201e20a7c746a7e93535a3e9b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - enemyPrefab: {fileID: 5579858665803529359, guid: d189733d65ee5f544bc765db4e8960ef, type: 3}
+  currWave: 0
+  enemyAntal: 1
+  enemiesToSpawn: []
+  spawnLocation:
+  - {fileID: 352636836}
+  spawnIndex: 0
+  waveDuration: 0
+  spawnedEnemies: []
 --- !u!1001 &3230023713576009947
 PrefabInstance:
   m_ObjectHideFlags: 0
