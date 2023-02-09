@@ -10,7 +10,6 @@ public class SpawnManager : MonoBehaviour
     private int waveValue;
     public List<GameObject> enemiesToSpawn = new List<GameObject>();
 //enemy list antal
-    public List<enemyAntal> antalEnemys ;
     public Transform[] spawnLocation;
     public int spawnIndex;
 
