@@ -8,7 +8,8 @@ public class SpawnManager : MonoBehaviour
     public int currWave;
     private int waveValue;
     public List<GameObject> enemiesToSpawn = new List<GameObject>();
-
+    public List<enemyAntal> enemiesAntal = new List<enemyAntal>();
+//enemy list antal
     public Transform[] spawnLocation;
     public int spawnIndex;
 
@@ -73,18 +74,8 @@ public void GenerateWave()
     }
 public void GenerateEnemies()
     {
-        // Create a temporary list of enemies to generate
-        // 
-        // in a loop grab a random enemy 
-        // see if we can afford it
-        // if we can, add it to our list, and deduct the cost.
-
-        // repeat... 
-
-        //  -> if we have no points left, leave the loop
-
         List<GameObject> generatedEnemies = new List<GameObject>();
-        while (waveValue > 0 || generatedEnemies.Count < 50)
+        while (waveValue > 0 || generatedEnemies.Count < enemyAntal)
         {
             int randEnemyId = Random.Range(0, enemies.Count);
 
