@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+
     public List<Enemy> enemies = new List<Enemy>();
     public int currWave;
-    public float enemyAntal;
-   
     private int waveValue;
+
+    private float antalEnemy;
     public List<GameObject> enemiesToSpawn = new List<GameObject>();
-//enemy list antal
+
     public Transform[] spawnLocation;
     public int spawnIndex;
 
@@ -29,7 +30,7 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-         if (spawnTimer <= 0)
+        if (spawnTimer <= 0)
         {
             //spawn an enemy
             if (enemiesToSpawn.Count > 0)
@@ -65,7 +66,8 @@ public class SpawnManager : MonoBehaviour
             GenerateWave();
         }
     }
-public void GenerateWave()
+
+    public void GenerateWave()
     {
         waveValue = currWave * 10;
         GenerateEnemies();
@@ -73,13 +75,15 @@ public void GenerateWave()
         spawnInterval = waveDuration / enemiesToSpawn.Count; // gives a fixed time between each enemies
         waveTimer = waveDuration; // wave duration is read only
     }
-public void GenerateEnemies()
+
+    public void GenerateEnemies()
     {
+
         List<GameObject> generatedEnemies = new List<GameObject>();
-        while (waveValue > 0 || generatedEnemies.Count < enemyAntal)
+        while (waveValue > 0 || generatedEnemies.Count < antalEnemy)
         {
             int randEnemyId = Random.Range(0, enemies.Count);
-
+            
             if (waveValue <= 0)
             {
                 break;
@@ -88,14 +92,13 @@ public void GenerateEnemies()
         enemiesToSpawn.Clear();
         enemiesToSpawn = generatedEnemies;
     }
+
+}
+
 [System.Serializable]
 public class Enemy
 {
     public GameObject enemyPrefab;
-
+    
 }
 
-
-
-
-}
