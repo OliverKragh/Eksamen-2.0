@@ -56,19 +56,20 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scenes\scripts\WaveSpawner.cs" />
+    <Compile Include="Assets\Import\Zombie\Supercyan Character Pack Zombie Sample\Scripts\ZombieFree.cs" />
     <Compile Include="Assets\Scenes\scripts\SpawnManager.cs" />
     <Compile Include="Assets\Scenes\scripts\PlayerController.cs" />
+    <Compile Include="Assets\Import\Zombie\Supercyan Character Pack Zombie Sample\Scripts\ZombieCameraLogic.cs" />
+    <Compile Include="Assets\Import\Zombie\Supercyan Character Pack Zombie Sample\Scripts\ZombieCharacterControl.cs" />
     <Compile Include="Assets\Scenes\scripts\Zombie.cs" />
     <Compile Include="Assets\Scenes\scripts\Gun.cs" />
     <Compile Include="Assets\Scenes\ass.cs" />
     <Compile Include="Assets\Import\Player\Supercyan Character Pack Free Sample\Scripts\DemoFree.cs" />
     <Compile Include="Assets\Import\Player\Supercyan Character Pack Free Sample\Scripts\SimpleSampleCharacterControl.cs" />
     <Compile Include="Assets\Scenes\scripts\CameraController.cs" />
+    <Compile Include="Assets\Scenes\scripts\Bullet.cs" />
     <Compile Include="Assets\Import\Player\Supercyan Character Pack Free Sample\Scripts\FreeCameraLogic.cs" />
-    <Compile Include="Assets\Scenes\scripts\WaveSpawner.cs" />
-    <Compile Include="Assets\Import\Zombie\Supercyan Character Pack Zombie Sample\Scripts\ZombieCharacterControl.cs" />
-    <Compile Include="Assets\Import\Zombie\Supercyan Character Pack Zombie Sample\Scripts\ZombieFree.cs" />
-    <Compile Include="Assets\Import\Zombie\Supercyan Character Pack Zombie Sample\Scripts\ZombieCameraLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Import\Zombie\Supercyan Character Pack Zombie Sample\Shaders\Legacy\CelShader.shader" />
