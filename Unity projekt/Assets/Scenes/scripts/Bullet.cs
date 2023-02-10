@@ -5,18 +5,19 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 private int bulletSpeed = 5;
+private Rigidbody bulletRB;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+      BulletRB = GetComponent<Rigidbody>();  
     }
 
     // Update is called once per frame
     void Update()
     {
     //ved ikke om virker, har ikke testet det
-        Transform.position(Vector3.Forward * bulletSpeed);
+        BulletRB.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
     
     }
 }
