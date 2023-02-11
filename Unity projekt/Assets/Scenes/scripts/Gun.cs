@@ -17,6 +17,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         //reload
      //RELOAD UDEN TOMT MAG
         if (Input.GetKeyDown(KeyCode.R) && ammoLeft < magazineSize && ammoLeft > 0 && reloading == false) 
@@ -39,7 +40,7 @@ public class Gun : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && reloading == false && ammoLeft > 0)
         {
             ammoLeft = ammoLeft - 1;
-           // Instantiate(bullet, transform.position, bullet.transform.rotation);
+            Instantiate(bullet, transform.position, bullet.transform.rotation);
             Debug.Log("SHOOTING");
         } 
         

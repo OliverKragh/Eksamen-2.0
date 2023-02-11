@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Zombie : MonoBehaviour
 {
+
+    public int startingHealth = 100;
+    private int currentHealth;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +19,27 @@ public class Zombie : MonoBehaviour
     {
         
     }
+
+    void OnTriggerEnter(Collider other)
+    {currentHealth -= 20;
+            Debug.Log("RAMT");
+
+            if (currentHealth <= 0)
+            {
+                Destroy(gameObject);
+                //Die();
+            }
+        if (other.CompareTag("Bullet"))
+        {
+    
+            
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
+    }
 }
+
+
