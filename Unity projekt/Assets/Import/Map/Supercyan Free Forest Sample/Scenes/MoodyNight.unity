@@ -152,7 +152,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &347672091
 GameObject:
@@ -302,6 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 540169ee37a68ff46a1bba1a7dfe400f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BulletRB: {fileID: 493544793}
 --- !u!136 &493544789
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -530,7 +531,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306813061}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.508, y: 1.049, z: 52.332}
+  m_LocalPosition: {x: 17.508, y: 1.37, z: 52.332}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -712,14 +713,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - enemyPrefab: {fileID: 5579858665803529359, guid: d189733d65ee5f544bc765db4e8960ef, type: 3}
-    cost: 0
-  currWave: 0
+  currWave: 5
   enemiesToSpawn: []
   spawnLocation:
-  - {fileID: 352636836}
-  spawnIndex: 0
-  waveDuration: 5
-  antalE: 5
+  - {fileID: 2038408881}
+  - {fileID: 1306813062}
+  spawnIndex: 1
+  areaRand: 2
+  waveDuration: 140
+  antalE: 50
   spawnedEnemies: []
 --- !u!1001 &3230023713576009947
 PrefabInstance:
@@ -742,7 +744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3230023714367432633, guid: 97d5ddd29eb280c49912c6131c6ce8f8, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3230023714367432633, guid: 97d5ddd29eb280c49912c6131c6ce8f8, type: 3}
       propertyPath: m_LocalPosition.x

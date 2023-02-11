@@ -17,8 +17,10 @@ public class PlayerController : MonoBehaviour
 
     //HOP
     private float jumpForce = 400;
+
     //MUS SENS
     public float mouseHorizontalSpeed = 2.0F;
+
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +57,10 @@ public class PlayerController : MonoBehaviour
         {
              playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+
+      
+        
+
 
         //CAMERA
         float h = mouseHorizontalSpeed * Input.GetAxis("Mouse X");

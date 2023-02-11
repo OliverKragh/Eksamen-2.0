@@ -11,7 +11,6 @@ public class CameraController : MonoBehaviour
 
     //MOUSE SENS
     public float mouseVerticalSpeed = 2.0F;
-
     
     // Start is called before the first frame update
     void Start()
@@ -26,7 +25,7 @@ public class CameraController : MonoBehaviour
         
         float v = mouseVerticalSpeed * Input.GetAxis("Mouse Y");
         transform.Rotate(-v, 0, 0); 
-        
+     
 
         //sætter kam position samme som spiller + offset
         transform.position = player.transform.position + offset;
