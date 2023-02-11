@@ -36,11 +36,11 @@ public class Gun : MonoBehaviour
         }
 
 
-        //shoot
+         //shoot
         if (Input.GetMouseButtonDown(0) && reloading == false && ammoLeft > 0)
         {
             ammoLeft = ammoLeft - 1;
-            Instantiate(bullet, transform.position, bullet.transform.rotation);
+            Shoot();
             Debug.Log("SHOOTING");
         } 
         
@@ -53,12 +53,9 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
-       
-
-
-
+        
+        Instantiate(bullet, transform.position, bullet.transform.rotation);
     }
-
     
     public void Reload()
     {

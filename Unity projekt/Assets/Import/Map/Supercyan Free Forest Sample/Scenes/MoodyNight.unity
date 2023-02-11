@@ -589,7 +589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - enemyPrefab: {fileID: 5579858665803529359, guid: d189733d65ee5f544bc765db4e8960ef, type: 3}
-  currWave: 5
+  currWave: 0
   enemiesToSpawn: []
   spawnLocation:
   - {fileID: 2038408881}
@@ -597,7 +597,7 @@ MonoBehaviour:
   spawnIndex: 1
   areaRand: 2
   waveDuration: 140
-  antalE: 50
+  antalE: 5
   spawnedEnemies: []
 --- !u!1001 &3230023713576009947
 PrefabInstance:
