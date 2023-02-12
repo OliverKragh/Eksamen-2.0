@@ -7,31 +7,44 @@ public class Zombie : MonoBehaviour
 
     public int startingHealth = 100;
     private int currentHealth;
+    private Rigidbody zombieRB;
+     private Transform playerRB;
+    private GameObject player;
+    private float zombieSpeed = 1;
+
+    public int chance;
+    private int number;
 
     // Start is called before the first frame update
     void Start()
     {
+        zombieRB = GetComponent<Rigidbody>();
+        player = GameObject.Find("MaleFree1");
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //Zombier følger spiller
+        Vector3 targetDirection = (player.transform.position - transform.position).normalized;
+       
+        transform.LookAt(player.transform);
+        //transform.Translate(Vector3.forward * Time.deltaTime * zombieSpeed );
     }
 
     void OnTriggerEnter(Collider other)
-    {currentHealth -= 20;
+    {
+        currentHealth -= 20;
             Debug.Log("RAMT");
 
             if (currentHealth <= 0)
             {
-                Destroy(gameObject);
-                //Die();
+                Die();
             }
-        if (other.CompareTag("Bullet"))
+        
+       // if (other.CompareTag("Bullet"))
         {
-    
             
         }
     }
@@ -39,6 +52,12 @@ public class Zombie : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+        number = Random.Range(1, chance);
+        if (number == 1)
+        {
+            Debug.Log("POWERUP");
+        }
+
     }
 }
 
