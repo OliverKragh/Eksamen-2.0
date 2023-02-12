@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-private int bulletSpeed = 10;
+private int bulletSpeed = 2;
 private Rigidbody BulletRB;
 
 private GameObject player;
 
 private float playerViewY;
 private float playerViewX;
-private float xrot;
-private float yrot;
+
 
 
   
@@ -21,10 +20,11 @@ private float yrot;
     {
         playerViewX = GameObject.Find("PlayerView").GetComponent<Transform>().eulerAngles.x;
         playerViewY = GameObject.Find("MaleFree1").GetComponent<Transform>().eulerAngles.y;
+        transform.eulerAngles = new Vector3(playerViewX, playerViewY, transform.eulerAngles.z);
 
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, playerViewY, playerViewX);
-    
 
+        BulletRB = GetComponent<Rigidbody>();
+        BulletRB.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
 
       
 

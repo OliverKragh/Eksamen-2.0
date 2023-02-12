@@ -20,7 +20,7 @@ public class Zombie : MonoBehaviour
     {
         zombieRB = GetComponent<Rigidbody>();
         player = GameObject.Find("MaleFree1");
-        
+        currentHealth = startingHealth;
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class Zombie : MonoBehaviour
         Vector3 targetDirection = (player.transform.position - transform.position).normalized;
        
         transform.LookAt(player.transform);
-        //transform.Translate(Vector3.forward * Time.deltaTime * zombieSpeed );
+        //SLET "//" transform.Translate(Vector3.forward * Time.deltaTime * zombieSpeed );
     }
 
     void OnTriggerEnter(Collider other)
@@ -42,6 +42,8 @@ public class Zombie : MonoBehaviour
             {
                 Die();
             }
+        Destroy(other);
+
         
        // if (other.CompareTag("Bullet"))
         {
@@ -52,6 +54,7 @@ public class Zombie : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+
         number = Random.Range(1, chance);
         if (number == 1)
         {

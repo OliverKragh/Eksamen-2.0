@@ -578,6 +578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
+  chance: 100
 --- !u!1 &5655649098905730403
 GameObject:
   m_ObjectHideFlags: 0

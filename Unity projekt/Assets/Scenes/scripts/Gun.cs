@@ -19,7 +19,7 @@ public class Gun : MonoBehaviour
     {
         
         //reload
-     //RELOAD UDEN TOMT MAG
+        //RELOAD UDEN TOMT MAG
         if (Input.GetKeyDown(KeyCode.R) && ammoLeft < magazineSize && ammoLeft > 0 && reloading == false) 
         {
             reloading = true;
@@ -44,7 +44,7 @@ public class Gun : MonoBehaviour
             Debug.Log("SHOOTING");
         } 
         
-        if (ammoLeft == 0)
+        if (Input.GetMouseButtonDown(0) && ammoLeft == 0)
         {
             Debug.Log("OUT OF AMMO");
         }
