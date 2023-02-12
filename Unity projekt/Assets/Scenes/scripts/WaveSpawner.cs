@@ -40,15 +40,6 @@ public class WaveSpawner : MonoBehaviour
                 enemiesToSpawn.RemoveAt(0); // and remove it
                 spawnedEnemies.Add(enemy);
                 spawnTimer = spawnInterval;
-
-                if (spawnIndex + 1 <= spawnLocation.Length - 1)
-                {
-                    spawnIndex++;
-                }
-                else
-                {
-                    spawnIndex = 0;
-                }
             }
             else
             {
@@ -64,6 +55,7 @@ public class WaveSpawner : MonoBehaviour
         if (waveTimer <= 0 && spawnedEnemies.Count <= 0)
         {
             currWave++;
+            spawnIndex = (spawnIndex + 1) % spawnLocation.Length; // change the spawn index to next in the array 
             GenerateWave();
         }
     }
@@ -96,4 +88,3 @@ public class Enemy
 {
     public GameObject enemyPrefab;
 }
-

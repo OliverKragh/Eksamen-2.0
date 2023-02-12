@@ -24,10 +24,10 @@ public float rotx, roty, rotz;
     void Update()
     {
       
-      if (GameObject.Find("MaleFree1").GetComponent<Transform>().Quaternion.eulerAngles)
-      {
-        transform.Rotate(rotx, roty, rotz, Space.Self);
-      }
+     // if (GameObject.Find("MaleFree1").GetComponent<Transform>().Quaternion.eulerAngles)
+     // {
+    //    transform.Rotate(rotx, roty, rotz, Space.Self);
+     // }
       
 
      //Slet bullet hvis langt væk
