@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    private int magazineSize = 30;
+    public int magazineSize;
     public int ammoLeft;
     public bool reloading;
     public GameObject bullet;

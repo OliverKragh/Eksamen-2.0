@@ -45,9 +45,9 @@ public class Zombie : MonoBehaviour
         Destroy(other);
 
         
-       // if (other.CompareTag("Bullet"))
+        if (other.CompareTag("Bullet"))
         {
-            
+            Debug.Log("SKU DA RAMT AF EN DIMS");
         }
     }
 
