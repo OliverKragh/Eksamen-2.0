@@ -9,6 +9,11 @@ public class CameraController : MonoBehaviour
     // offset position
     private Vector3 offset = new Vector3(0,0.9f,0);
 
+    
+    public float maxRotation = 53f; 
+    public float minRotation = -47f;
+    private float currentRotation;
+
     //MOUSE SENS
     public float mouseVerticalSpeed = 2.0F;
     
@@ -27,8 +32,13 @@ public class CameraController : MonoBehaviour
         transform.Rotate(-v, 0, 0); 
      
 
-        //sætter kam position samme som spiller + offset
+        //Sætter kam position samme som spiller + offset
         transform.position = player.transform.position + offset;
+
+
+        //MAX KIG ---------------------------------------------------------------
+        currentRotation = transform.localRotation.x;
+        //fucking virker ik
     }
 
     
