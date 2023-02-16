@@ -6,15 +6,22 @@ using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
-    private Button startKnap;
-    private Button indstillingerKnap;
+    public Button startKnap;
+    public Button indstillingerKnap;
+    
+    public GameObject indstillingerMenu;
+    public Button indstillingerMenuBack;
+    
+    public int difficulty;
 
     // Start is called before the first frame update
     void Start()
     {
-       // startKnap = GetComponent<Button>();
+       
 
-       // startKnap.onClick.AddListener(StartButtonClicked);
+
+
+       
     }
 
     // Update is called once per frame
@@ -36,6 +43,16 @@ public class UI : MonoBehaviour
     {
         Debug.Log("Indstillinger din nød");
         startKnap.gameObject.SetActive(false);
-       // indstillingerKnap.gameObject.SetActive(false);
+        indstillingerKnap.gameObject.SetActive(false);
+        indstillingerMenu.gameObject.SetActive(true);
+        indstillingerMenuBack.gameObject.SetActive(true);
+
+    }
+
+    public void indstillingerMenuBackClicked()
+    {
+        startKnap.gameObject.SetActive(true);
+        indstillingerKnap.gameObject.SetActive(true);
+        indstillingerMenu.gameObject.SetActive(false);
     }
 }

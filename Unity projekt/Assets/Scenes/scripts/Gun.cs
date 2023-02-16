@@ -24,36 +24,17 @@ public class Gun : MonoBehaviour
     {
         
         //reload
-        //RELOAD UDEN TOMT MAG
-        if (Input.GetKeyDown(KeyCode.R) && ammoLeft < magazineSize && ammoLeft > 0 && reloading == false) 
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            reloading = true;
-            StartCoroutine(ReloadWait());
-            Debug.Log("RELOADING");
+            Reload();
         }
-
-        //RELOAD TOMT MAG
-        if (Input.GetKeyDown(KeyCode.R) && ammoLeft == 0  && reloading == false) 
-        {
-            reloading = true;
-            StartCoroutine(ReloadWaitEmpty());
-            Debug.Log("RELOADING");
-        }
-
-        
-
          //shoot
-        if (Input.GetMouseButtonDown(0) && reloading == false && ammoLeft > 0)
+        if (Input.GetMouseButtonDown(0) )
         {
-            ammoLeft = ammoLeft - 1;
             Shoot();
-            Debug.Log("SHOOTING");
         } 
         
-        if (Input.GetMouseButtonDown(0) && ammoLeft == 0)
-        {
-            Debug.Log("OUT OF AMMO");
-        }
+        
 
         // TEXT ----------------------------------------------
         if (ammoLeft > 0)
@@ -74,13 +55,37 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
+        if (Input.GetMouseButtonDown(0) && ammoLeft == 0 )
+        {
+            Debug.Log("OUT OF AMMO");
+        }
+        if (ammoLeft > 0 && reloading == false )
+        {
+            ammoLeft = ammoLeft - 1;
+            Instantiate(bullet, transform.position, bullet.transform.rotation);
+            Debug.Log("SHOOTING"); 
+        }
         
-        Instantiate(bullet, transform.position, bullet.transform.rotation);
     }
     
     public void Reload()
     {
-        
+         //reload
+        //RELOAD UDEN TOMT MAG
+        if (Input.GetKeyDown(KeyCode.R) && ammoLeft < magazineSize && ammoLeft > 0 && reloading == false) 
+        {
+            reloading = true;
+            StartCoroutine(ReloadWait());
+            Debug.Log("RELOADING");
+        }
+
+        //RELOAD TOMT MAG
+        if (ammoLeft == 0  && reloading == false) 
+        {
+            reloading = true;
+            StartCoroutine(ReloadWaitEmpty());
+            Debug.Log("RELOADING");
+        }
     }
     IEnumerator ReloadWait()
     {

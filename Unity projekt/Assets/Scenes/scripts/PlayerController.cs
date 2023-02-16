@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
     public TextMeshProUGUI hPText;
     public int healthPoints = 100;
+    public bool touchingTerrain ;
 
     // Start is called before the first frame update
     void Start()
@@ -72,6 +73,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
+   
 
 } 
+
