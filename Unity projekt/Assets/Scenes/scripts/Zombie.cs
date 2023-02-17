@@ -30,7 +30,7 @@ public class Zombie : MonoBehaviour
         Vector3 targetDirection = (player.transform.position - transform.position).normalized;
        
         transform.LookAt(player.transform);
-        //SLET "//" transform.Translate(Vector3.forward * Time.deltaTime * zombieSpeed );
+        transform.Translate(Vector3.forward * Time.deltaTime * zombieSpeed );
     }
 
     void OnTriggerEnter(Collider other)

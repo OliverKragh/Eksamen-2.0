@@ -10,11 +10,18 @@ public class Gun : MonoBehaviour
     public int magazineSize;
     public int ammoLeft;
     public bool reloading;
+    public int firerate;
+    
+    public bool shootCooldown;
     public GameObject bullet;
     public TextMeshProUGUI ammoLeftText;
+    public GameObject AK47;
+    public GameObject M1911;
+
     // Start is called before the first frame update
     void Start()
     {
+        shootCooldown = false;
         ammoLeft = magazineSize;
         ammoLeftText = GameObject.Find("AmmoLeft").GetComponent<TextMeshProUGUI>();
     }
@@ -28,8 +35,9 @@ public class Gun : MonoBehaviour
         {
             Reload();
         }
+
          //shoot
-        if (Input.GetMouseButtonDown(0) )
+        if (Input.GetMouseButton(0) )
         {
             Shoot();
         } 
@@ -53,22 +61,42 @@ public class Gun : MonoBehaviour
 
     }
 
-    public void Shoot()
+     void Shoot()
     {
-        if (Input.GetMouseButtonDown(0) && ammoLeft == 0 )
+        if (ammoLeft == 0 )
         {
             Debug.Log("OUT OF AMMO");
         }
-        if (ammoLeft > 0 && reloading == false )
+      
+       
+        if (AK47.activeSelf && ammoLeft > 0 && reloading == false && shootCooldown == false )
         {
+            shootCooldown = true;
+            StartCoroutine(ShotCooldown());
             ammoLeft = ammoLeft - 1;
             Instantiate(bullet, transform.position, bullet.transform.rotation);
             Debug.Log("SHOOTING"); 
         }
+
+       
+        if (M1911.activeSelf && ammoLeft > 0 && reloading == false && Input.GetMouseButtonDown(0))
+        {
+            shootCooldown = false;
+            ammoLeft = ammoLeft - 1;
+            Instantiate(bullet, transform.position, bullet.transform.rotation);
+            Debug.Log("SHOOTING"); 
+        }
+      
+        
+    
+      
+
+
+        
         
     }
     
-    public void Reload()
+    void Reload()
     {
          //reload
         //RELOAD UDEN TOMT MAG
@@ -87,6 +115,9 @@ public class Gun : MonoBehaviour
             Debug.Log("RELOADING");
         }
     }
+
+
+
     IEnumerator ReloadWait()
     {
         yield return new WaitForSeconds(1);
@@ -102,5 +133,14 @@ public class Gun : MonoBehaviour
         reloading = false;
         Debug.Log("RELOAD COMPLETE");
     }
+    IEnumerator ShotCooldown()
+    {
+        yield return new WaitForSeconds(0.1);
+        shootCooldown = false;
+        Debug.Log("fucking skyd");
+        
+    }
 
+    
 }
+

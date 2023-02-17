@@ -831,6 +831,11 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!1 &1421610628 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3230023713008138353, guid: 97d5ddd29eb280c49912c6131c6ce8f8, type: 3}
+  m_PrefabInstance: {fileID: 3230023713576009947}
+  m_PrefabAsset: {fileID: 0}
 --- !u!850595691 &1715268046
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -1153,10 +1158,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3230023713008138353, guid: 97d5ddd29eb280c49912c6131c6ce8f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230023713280716512, guid: 97d5ddd29eb280c49912c6131c6ce8f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3230023713912769614, guid: 97d5ddd29eb280c49912c6131c6ce8f8, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1362896729}
+    - target: {fileID: 3230023713919954089, guid: 97d5ddd29eb280c49912c6131c6ce8f8, type: 3}
+      propertyPath: AK47
+      value: 
+      objectReference: {fileID: 3230023713576009948}
+    - target: {fileID: 3230023713919954089, guid: 97d5ddd29eb280c49912c6131c6ce8f8, type: 3}
+      propertyPath: M1911
+      value: 
+      objectReference: {fileID: 1421610628}
     - target: {fileID: 3230023713919954089, guid: 97d5ddd29eb280c49912c6131c6ce8f8, type: 3}
       propertyPath: bullet
       value: 
@@ -1228,3 +1249,29 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3230023713912769613, guid: 97d5ddd29eb280c49912c6131c6ce8f8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 97d5ddd29eb280c49912c6131c6ce8f8, type: 3}
+--- !u!1 &3230023713576009948 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3230023713280716512, guid: 97d5ddd29eb280c49912c6131c6ce8f8, type: 3}
+  m_PrefabInstance: {fileID: 3230023713576009947}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3230023713576009950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3230023713576009948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc5ed7a38df513343af6a5b61855e5df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magazineSize: 30
+  ammoLeft: 0
+  reloading: 0
+  firerate: 1
+  shootCooldown: 0
+  bullet: {fileID: 3700806422129293745, guid: 12de1071c0b5cf64eae24e8eb8c58475, type: 3}
+  ammoLeftText: {fileID: 0}
+  AK47: {fileID: 3230023713576009948}
+  M1911: {fileID: 1421610628}
