@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
 
@@ -10,15 +12,18 @@ public class PlayerController : MonoBehaviour
     public float horizontalInput;
     public float verticalInput;
     private float speed = 3;
-
-
     //SPRINT 
     private float sprintMultiplier = 1.4F;
 
     //HOP
     private float jumpForce = 400;
+
     //MUS SENS
     public float mouseHorizontalSpeed = 2.0F;
+
+    public TextMeshProUGUI hPText;
+    public int healthPoints = 100;
+    public bool touchingTerrain ;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +31,8 @@ public class PlayerController : MonoBehaviour
         //SKAL AKTIVERES NÅR SPILLET BEGYNDER IKKE NÅR VI ER I UI
         Cursor.lockState = CursorLockMode.Locked;
         playerRB = GetComponent<Rigidbody>();
+
+        hPText = GameObject.Find("HPUI").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -56,12 +63,17 @@ public class PlayerController : MonoBehaviour
              playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
 
+    
         //CAMERA
         float h = mouseHorizontalSpeed * Input.GetAxis("Mouse X");
         transform.Rotate(0, h, 0);
 
+        //HP
+        hPText.text = "HP: " + healthPoints;
+
     }
 
+   
 
+} 
 
-} //fucking vores alles projekt

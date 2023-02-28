@@ -1,24 +1,105 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
-    private int magazineSize = 30;
+    public int magazineSize;
     public int ammoLeft;
     public bool reloading;
+    public int firerate;
+    
+    public bool shootCooldown;
     public GameObject bullet;
+    public TextMeshProUGUI ammoLeftText;
+    public GameObject AK47;
+    public GameObject M1911;
+
     // Start is called before the first frame update
     void Start()
     {
+        shootCooldown = false;
         ammoLeft = magazineSize;
+        ammoLeftText = GameObject.Find("AmmoLeft").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         //reload
-     //RELOAD UDEN TOMT MAG
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Reload();
+        }
+
+         //shoot
+        if (Input.GetMouseButton(0) )
+        {
+            Shoot();
+        } 
+        
+        
+
+        // TEXT ----------------------------------------------
+        if (ammoLeft > 0)
+        {
+            ammoLeftText.text = "Ammo Left: " + ammoLeft;
+        }
+        if (ammoLeft == 0)
+        {
+            ammoLeftText.text = "Out of Ammo";
+        }
+
+        if  (reloading == true)
+        {
+            ammoLeftText.text ="Reloading";
+        }
+
+    }
+
+     void Shoot()
+    {
+        if (ammoLeft == 0 )
+        {
+            Debug.Log("OUT OF AMMO");
+        }
+      
+       
+        if (AK47.activeSelf && ammoLeft > 0 && reloading == false && shootCooldown == false )
+        {
+            shootCooldown = true;
+            StartCoroutine(ShotCooldown());
+            ammoLeft = ammoLeft - 1;
+            Instantiate(bullet, transform.position, bullet.transform.rotation);
+            Debug.Log("SHOOTING"); 
+        }
+
+       
+        if (M1911.activeSelf && ammoLeft > 0 && reloading == false && Input.GetMouseButtonDown(0))
+        {
+            shootCooldown = false;
+            ammoLeft = ammoLeft - 1;
+            Instantiate(bullet, transform.position, bullet.transform.rotation);
+            Debug.Log("SHOOTING"); 
+        }
+      
+        
+    
+      
+
+
+        
+        
+    }
+    
+    void Reload()
+    {
+         //reload
+        //RELOAD UDEN TOMT MAG
         if (Input.GetKeyDown(KeyCode.R) && ammoLeft < magazineSize && ammoLeft > 0 && reloading == false) 
         {
             reloading = true;
@@ -27,44 +108,16 @@ public class Gun : MonoBehaviour
         }
 
         //RELOAD TOMT MAG
-        if (Input.GetKeyDown(KeyCode.R) && ammoLeft == 0  && reloading == false) 
+        if (ammoLeft == 0  && reloading == false) 
         {
             reloading = true;
             StartCoroutine(ReloadWaitEmpty());
             Debug.Log("RELOADING");
         }
-
-
-        //shoot
-        if (Input.GetMouseButtonDown(0) && reloading == false && ammoLeft > 0)
-        {
-            ammoLeft = ammoLeft - 1;
-           // Instantiate(bullet, transform.position, bullet.transform.rotation);
-            Debug.Log("SHOOTING");
-        } 
-        
-        if (ammoLeft == 0)
-        {
-            Debug.Log("OUT OF AMMO");
-        }
-
     }
 
-    public void Shoot()
-    {
-       
 
 
-
-    }
-
-    
-    public void Reload()
-    {
-        
-
-        
-    }
     IEnumerator ReloadWait()
     {
         yield return new WaitForSeconds(1);
@@ -80,5 +133,14 @@ public class Gun : MonoBehaviour
         reloading = false;
         Debug.Log("RELOAD COMPLETE");
     }
+    IEnumerator ShotCooldown()
+    {
+        yield return new WaitForSeconds(0.1);
+        shootCooldown = false;
+        Debug.Log("fucking skyd");
+        
+    }
 
+    
 }
+
