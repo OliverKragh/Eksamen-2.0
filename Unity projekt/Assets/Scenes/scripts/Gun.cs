@@ -12,6 +12,7 @@ public class Gun : MonoBehaviour
     public bool reloading;
     public int firerate;
     
+    
     public bool shootCooldown;
     public GameObject bullet;
     public TextMeshProUGUI ammoLeftText;
@@ -24,6 +25,7 @@ public class Gun : MonoBehaviour
         shootCooldown = false;
         ammoLeft = magazineSize;
         ammoLeftText = GameObject.Find("AmmoLeft").GetComponent<TextMeshProUGUI>();
+        
     }
 
     // Update is called once per frame
@@ -37,7 +39,7 @@ public class Gun : MonoBehaviour
         }
 
          //shoot
-        if (Input.GetMouseButton(0) )
+        if (Input.GetMouseButton(0))
         {
             Shoot();
         } 
@@ -59,6 +61,13 @@ public class Gun : MonoBehaviour
             ammoLeftText.text ="Reloading";
         }
 
+        if (AK47.activeSelf)
+        {
+            firerate = 2;
+        }
+
+
+
     }
 
      void Shoot()
@@ -67,33 +76,28 @@ public class Gun : MonoBehaviour
         {
             Debug.Log("OUT OF AMMO");
         }
-      
-       
-        if (AK47.activeSelf && ammoLeft > 0 && reloading == false && shootCooldown == false )
+
+
+
+
+        if (AK47.activeSelf && ammoLeft > 0 && reloading == false && shootCooldown == false)
         {
             shootCooldown = true;
             StartCoroutine(ShotCooldown());
             ammoLeft = ammoLeft - 1;
             Instantiate(bullet, transform.position, bullet.transform.rotation);
-            Debug.Log("SHOOTING"); 
+            Debug.Log("SHOOTING");
         }
+        
 
        
         if (M1911.activeSelf && ammoLeft > 0 && reloading == false && Input.GetMouseButtonDown(0))
         {
-            shootCooldown = false;
             ammoLeft = ammoLeft - 1;
             Instantiate(bullet, transform.position, bullet.transform.rotation);
             Debug.Log("SHOOTING"); 
         }
-      
-        
-    
-      
-
-
-        
-        
+     
     }
     
     void Reload()
@@ -135,9 +139,11 @@ public class Gun : MonoBehaviour
     }
     IEnumerator ShotCooldown()
     {
-        yield return new WaitForSeconds(0.1);
-        shootCooldown = false;
+        
         Debug.Log("fucking skyd");
+        yield return new WaitForSeconds((1/firerate));
+        shootCooldown = false;
+        
         
     }
 

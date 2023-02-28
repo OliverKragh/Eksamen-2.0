@@ -42,7 +42,7 @@ public class Zombie : MonoBehaviour
             {
                 Die();
             }
-        Destroy(other);
+        Destroy(other.gameObject);
 
         
         if (other.CompareTag("Bullet"))
