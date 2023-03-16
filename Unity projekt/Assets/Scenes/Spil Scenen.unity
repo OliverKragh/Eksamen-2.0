@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0051071476, g: 0.0030562598, b: 0.012906754, a: 0.1}
+  m_IndirectSpecularColor: {r: 0.005010994, g: 0.0029998745, b: 0.012670922, a: 0.1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1269,7 +1269,7 @@ MonoBehaviour:
   magazineSize: 30
   ammoLeft: 0
   reloading: 0
-  firerate: 2
+  firerate: 1
   shootCooldown: 0
   bullet: {fileID: 3700806422129293745, guid: 12de1071c0b5cf64eae24e8eb8c58475, type: 3}
   ammoLeftText: {fileID: 0}

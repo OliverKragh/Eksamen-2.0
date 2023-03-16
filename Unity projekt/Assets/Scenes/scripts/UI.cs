@@ -10,7 +10,6 @@ public class UI : MonoBehaviour
     public Button indstillingerKnap;
     
     public GameObject indstillingerMenu;
-    public GameObject StartMenu;
     public Button indstillingerMenuBack;
     
     public int difficulty;
@@ -43,8 +42,8 @@ public class UI : MonoBehaviour
    public void IndstillingerButtonClicked()
     {
         Debug.Log("Indstillinger din nød");
-        
-        StartMenu.gameObject.SetActive(false);
+        startKnap.gameObject.SetActive(false);
+        indstillingerKnap.gameObject.SetActive(false);
         indstillingerMenu.gameObject.SetActive(true);
         indstillingerMenuBack.gameObject.SetActive(true);
 
@@ -52,7 +51,8 @@ public class UI : MonoBehaviour
 
     public void indstillingerMenuBackClicked()
     {
-        StartMenu.gameObject.SetActive(true);
+        startKnap.gameObject.SetActive(true);
+        indstillingerKnap.gameObject.SetActive(true);
         indstillingerMenu.gameObject.SetActive(false);
     }
 }

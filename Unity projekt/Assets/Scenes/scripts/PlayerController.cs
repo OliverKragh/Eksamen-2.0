@@ -17,8 +17,6 @@ public class PlayerController : MonoBehaviour
 
     //HOP
     private float jumpForce = 400;
-    public bool jumpCool;
-
 
     //MUS SENS
     public float mouseHorizontalSpeed = 2.0F;
@@ -59,16 +57,13 @@ public class PlayerController : MonoBehaviour
         }
        
         
-        //HOP
-        if (Input.GetKeyDown(KeyCode.Space) && jumpCool==false)
+    //HOP
+        if (Input.GetKeyDown(KeyCode.Space))
         {
              playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            StartCoroutine(Jumpcooldown());
         }
 
-        
-
-
+    
         //CAMERA
         float h = mouseHorizontalSpeed * Input.GetAxis("Mouse X");
         transform.Rotate(0, h, 0);
@@ -78,15 +73,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
-
-    // Jump cooldown
-    IEnumerator Jumpcooldown()
-    {
-        jumpCool = true;
-        yield return new WaitForSeconds(1);
-        jumpCool = false;
-    }
+   
 
 } 
 
