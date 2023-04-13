@@ -25,19 +25,36 @@ public class PlayerController : MonoBehaviour
     public int healthPoints = 100;
     public bool touchingTerrain ;
 
+    private bool gameActive;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
+        // Find the GameObject with the "UITomtSpilScenen" name
+        GameObject uiGameObject = GameObject.Find("UITomtSpilScene");
+
+        // Get the "UI" script component attached to the GameObject
+        UI uiScript = uiGameObject.GetComponent<UI>();
+
+        // Access the "isGameActive" boolean value from the "UI" script
+        gameActive = uiScript.isGameActive;
+
         //SKAL AKTIVERES NÅR SPILLET BEGYNDER IKKE NÅR VI ER I UI
         Cursor.lockState = CursorLockMode.Locked;
         playerRB = GetComponent<Rigidbody>();
 
         hPText = GameObject.Find("HPUI").GetComponent<TextMeshProUGUI>();
+        
+        //
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+        print(gameActive);
         
         //KEYBOARD MOVEMENT
         horizontalInput = Input.GetAxis("Horizontal");
@@ -76,4 +93,6 @@ public class PlayerController : MonoBehaviour
    
 
 } 
+
+
 

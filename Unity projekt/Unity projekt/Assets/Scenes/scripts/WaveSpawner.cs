@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     public List<Enemy> enemies = new List<Enemy>();
     public int currWave;
@@ -26,7 +17,6 @@ public class WaveSpawner : MonoBehaviour
     private float waveTimer;
     private float spawnInterval;
     private float spawnTimer;
-    private float antalEnemy;
 
     public List<GameObject> spawnedEnemies = new List<GameObject>();
     // Start is called before the first frame update
@@ -124,3 +114,4 @@ public class Enemy
     public GameObject enemyPrefab;
     public int cost;
 }
+

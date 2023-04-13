@@ -7,28 +7,39 @@ using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
+    public GameObject player;
     public int magazineSize;
     public int ammoLeft;
     public bool reloading;
-    public int firerate;
+    public float firerate;
     
     public bool shootCooldown;
     public GameObject bullet;
     public TextMeshProUGUI ammoLeftText;
     public GameObject AK47;
     public GameObject M1911;
+    Vector3 newPlayerPos;
+    
+    
 
     // Start is called before the first frame update
     void Start()
     {
+       
         shootCooldown = false;
         ammoLeft = magazineSize;
         ammoLeftText = GameObject.Find("AmmoLeft").GetComponent<TextMeshProUGUI>();
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+       newPlayerPos = player.transform.position;
+       newPlayerPos.y = newPlayerPos.y + 0.8999996f;
+       
+        
+       
         
         //reload
         if (Input.GetKeyDown(KeyCode.R))
@@ -74,7 +85,7 @@ public class Gun : MonoBehaviour
             shootCooldown = true;
             StartCoroutine(ShotCooldown());
             ammoLeft = ammoLeft - 1;
-            Instantiate(bullet, transform.position, bullet.transform.rotation);
+            Instantiate(bullet, newPlayerPos, bullet.transform.rotation);
             Debug.Log("SHOOTING"); 
         }
 
@@ -135,7 +146,7 @@ public class Gun : MonoBehaviour
     }
     IEnumerator ShotCooldown()
     {
-        yield return new WaitForSeconds(0.1);
+        yield return new WaitForSeconds((60/firerate));
         shootCooldown = false;
         Debug.Log("fucking skyd");
         

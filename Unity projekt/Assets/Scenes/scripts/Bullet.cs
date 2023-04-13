@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-private int bulletSpeed = 2;
+private int bulletSpeed = 20;
 private Rigidbody BulletRB;
 
 private GameObject player;
@@ -20,6 +20,7 @@ private float playerViewX;
     {
         playerViewX = GameObject.Find("PlayerView").GetComponent<Transform>().eulerAngles.x;
         playerViewY = GameObject.Find("MaleFree1").GetComponent<Transform>().eulerAngles.y;
+        
         transform.eulerAngles = new Vector3(playerViewX, playerViewY, transform.eulerAngles.z);
 
 

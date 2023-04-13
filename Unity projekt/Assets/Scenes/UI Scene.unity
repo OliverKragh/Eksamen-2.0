@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.024317957, g: 0.06506007, b: 0.090756595, a: 0.1}
+  m_IndirectSpecularColor: {r: 0.024663366, g: 0.06603459, b: 0.092450306, a: 0.1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -157,6 +157,10 @@ MonoBehaviour:
   indstillingerMenu: {fileID: 591234254}
   indstillingerMenuBack: {fileID: 1008608442}
   difficulty: 0
+  ESCMenu: {fileID: 0}
+  ESCMenuToggled: 0
+  ESCMenuResumeButton: {fileID: 0}
+  ESCMenuQuitButton: {fileID: 0}
 --- !u!4 &31324764
 Transform:
   m_ObjectHideFlags: 0
@@ -1737,6 +1741,10 @@ MonoBehaviour:
   indstillingerMenu: {fileID: 0}
   indstillingerMenuBack: {fileID: 0}
   difficulty: 1
+  ESCMenu: {fileID: 0}
+  ESCMenuToggled: 0
+  ESCMenuResumeButton: {fileID: 0}
+  ESCMenuQuitButton: {fileID: 0}
 --- !u!1001 &830003388
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2558,6 +2566,10 @@ MonoBehaviour:
   indstillingerMenu: {fileID: 0}
   indstillingerMenuBack: {fileID: 0}
   difficulty: 3
+  ESCMenu: {fileID: 0}
+  ESCMenuToggled: 0
+  ESCMenuResumeButton: {fileID: 0}
+  ESCMenuQuitButton: {fileID: 0}
 --- !u!1 &1742403086
 GameObject:
   m_ObjectHideFlags: 0
@@ -2651,7 +2663,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1745771443}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1745771445
 Camera:
   m_ObjectHideFlags: 0
@@ -3182,6 +3194,10 @@ MonoBehaviour:
   indstillingerMenu: {fileID: 0}
   indstillingerMenuBack: {fileID: 0}
   difficulty: 2
+  ESCMenu: {fileID: 0}
+  ESCMenuToggled: 0
+  ESCMenuResumeButton: {fileID: 0}
+  ESCMenuQuitButton: {fileID: 0}
 --- !u!4 &2057779501 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4075937848129010, guid: 29636f40562819649b730c52f1babbcb, type: 3}

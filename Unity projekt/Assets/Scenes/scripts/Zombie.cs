@@ -12,7 +12,7 @@ public class Zombie : MonoBehaviour
     private GameObject player;
     private float zombieSpeed = 1;
 
-    public int chance;
+    public int chance = 100;
     private int number;
 
     // Start is called before the first frame update
@@ -35,7 +35,7 @@ public class Zombie : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        currentHealth -= 20;
+        currentHealth = currentHealth - startingHealth / 2;
             Debug.Log("RAMT");
 
             if (currentHealth <= 0)
@@ -54,6 +54,10 @@ public class Zombie : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+
+
+        WaveSpawner spawner = FindObjectOfType<WaveSpawner>();
+        spawner.spawnedEnemies.Remove(gameObject);
 
         number = Random.Range(1, chance);
         if (number == 1)
