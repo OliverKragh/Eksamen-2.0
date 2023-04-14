@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
     //HOP
     private float jumpForce = 400;
+    private bool jumpCooldown;
 
     //MUS SENS
     public float mouseHorizontalSpeed = 2.0F;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public bool touchingTerrain ;
 
     private bool gameActive;
+    
 
 
 
@@ -48,6 +50,7 @@ public class PlayerController : MonoBehaviour
         hPText = GameObject.Find("HPUI").GetComponent<TextMeshProUGUI>();
         
         //
+        jumpCooldown = false;
        
     }
 
@@ -75,9 +78,11 @@ public class PlayerController : MonoBehaviour
        
         
     //HOP
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && jumpCooldown == false)
         {
              playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+             StartCoroutine(JumpWait());
+             jumpCooldown = true;
         }
 
     
@@ -90,7 +95,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
-   
+   IEnumerator JumpWait()
+    {
+        yield return new WaitForSeconds(2);
+        jumpCooldown = false
+    }
 
 } 
 
