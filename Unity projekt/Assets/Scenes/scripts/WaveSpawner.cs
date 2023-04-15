@@ -23,8 +23,14 @@ public class WaveSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+    }
+
+    public void GameStart()
+    {
         currWave = 0;
         GenerateWave(); 
+
     }
 
     // Update is called once per frame

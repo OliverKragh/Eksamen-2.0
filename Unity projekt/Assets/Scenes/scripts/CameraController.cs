@@ -16,6 +16,9 @@ public class CameraController : MonoBehaviour
 
     //MOUSE SENS
     public float mouseVerticalSpeed = 2.0F;
+
+    //active
+    private bool isGameActive;
     
     // Start is called before the first frame update
     void Start()
@@ -26,6 +29,10 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isGameActive = GameObject.Find("UItomt").GetComponent<UI>().isGameActive;
+        if (isGameActive == true)
+        {
+        isGameActive = GameObject.Find("UItomt").GetComponent<UI>().isGameActive;
         //MUS
         
         float v = mouseVerticalSpeed * Input.GetAxis("Mouse Y");
@@ -39,6 +46,7 @@ public class CameraController : MonoBehaviour
         //MAX KIG ---------------------------------------------------------------
         currentRotation = transform.localRotation.x;
         //fucking virker ik
+        }
     }
 
     

@@ -19,22 +19,25 @@ public class Gun : MonoBehaviour
     public GameObject AK47;
     public GameObject M1911;
     Vector3 newPlayerPos;
-    
+    private bool isGameActive;
     
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        
         shootCooldown = false;
         ammoLeft = magazineSize;
-        ammoLeftText = GameObject.Find("AmmoLeft").GetComponent<TextMeshProUGUI>();
+        //ammoLeftText = GameObject.Find("AmmoLeft").GetComponent<TextMeshProUGUI>();
        
     }
 
     // Update is called once per frame
     void Update()
     {
+        isGameActive = GameObject.Find("UItomt").GetComponent<UI>().isGameActive;
+        if (isGameActive == true)
+        {
        newPlayerPos = player.transform.position;
        newPlayerPos.y = newPlayerPos.y + 0.8999996f;
        
@@ -69,6 +72,7 @@ public class Gun : MonoBehaviour
         {
             ammoLeftText.text ="Reloading";
         }
+        }
 
     }
 
@@ -94,7 +98,7 @@ public class Gun : MonoBehaviour
         {
             shootCooldown = false;
             ammoLeft = ammoLeft - 1;
-            Instantiate(bullet, transform.position, bullet.transform.rotation);
+            Instantiate(bullet, newPlayerPos, bullet.transform.rotation);
             Debug.Log("SHOOTING"); 
         }
       

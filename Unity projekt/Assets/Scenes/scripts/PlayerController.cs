@@ -23,42 +23,48 @@ public class PlayerController : MonoBehaviour
     public float mouseHorizontalSpeed = 2.0F;
 
     public TextMeshProUGUI hPText;
-    public int healthPoints = 100;
+    public double healthPoints = 100;
+    public double currentHealth;
     public bool touchingTerrain ;
 
     private bool gameActive;
-    
+    private bool isGameActive;
+   private double difficulty;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        // Find the GameObject with the "UITomtSpilScenen" name
-        GameObject uiGameObject = GameObject.Find("UITomtSpilScene");
-
-        // Get the "UI" script component attached to the GameObject
-        UI uiScript = uiGameObject.GetComponent<UI>();
-
-        // Access the "isGameActive" boolean value from the "UI" script
-        gameActive = uiScript.isGameActive;
-
+        
         //SKAL AKTIVERES NÅR SPILLET BEGYNDER IKKE NÅR VI ER I UI
-        Cursor.lockState = CursorLockMode.Locked;
+        
         playerRB = GetComponent<Rigidbody>();
 
-        hPText = GameObject.Find("HPUI").GetComponent<TextMeshProUGUI>();
+        //hPText = GameObject.Find("HPUI").GetComponent<TextMeshProUGUI>();
         
         //
         jumpCooldown = false;
        
     }
 
+    public void GameStart()
+    {
+        difficulty = GameObject.Find("UItomt").GetComponent<UI>().difficulty;
+        Debug.Log("player start");
+        currentHealth = healthPoints / difficulty;
+
+    }
+
     // Update is called once per frame
     void Update()
     {
-        print(gameActive);
         
+        isGameActive = GameObject.Find("UItomt").GetComponent<UI>().isGameActive;
+        
+       if (isGameActive == true) 
+       {
+        Cursor.lockState = CursorLockMode.Locked;
         //KEYBOARD MOVEMENT
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
@@ -91,14 +97,15 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(0, h, 0);
 
         //HP
-        hPText.text = "HP: " + healthPoints;
+        hPText.text = "HP: " + currentHealth;
+       }
 
     }
 
    IEnumerator JumpWait()
     {
-        yield return new WaitForSeconds(2);
-        jumpCooldown = false
+        yield return new WaitForSeconds(1);
+        jumpCooldown = false;
     }
 
 } 
