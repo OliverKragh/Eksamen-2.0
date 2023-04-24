@@ -3780,7 +3780,7 @@ MonoBehaviour:
   startKnap: {fileID: 19129961}
   indstillingerKnap: {fileID: 2119724044}
   indstillingerMenu: {fileID: 1684110114}
-  difficulty: 0
+  difficulty: 1
   ESCMenu: {fileID: 1684639166}
   GameUI: {fileID: 2105118877}
   ESCMenuToggled: 0
@@ -4205,6 +4205,7 @@ MonoBehaviour:
   areaRand: 2
   waveDuration: 0
   antalE: 10
+  difficulty: 2
   spawnedEnemies: []
 --- !u!1001 &3230023713576009947
 PrefabInstance:

@@ -12,8 +12,7 @@ public class UI : MonoBehaviour
     
     public GameObject indstillingerMenu;
     
-    public double difficulty;
-
+    public float difficulty = 1.5f;
     
     public GameObject ESCMenu;
     public GameObject GameUI;
@@ -34,32 +33,26 @@ public class UI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        difficulty = 1;
         isGameActive = false;
         MenuCamera.gameObject.SetActive(true);
         SpilCamera.gameObject.SetActive(false);
-        
         killedZombies = 0;
-        
-        
+        ESCMenuResumeButton.onClick.AddListener(ESCMenuVoid);
     }
 
     // Update is called once per frame
     void Update()
     {  
+        
         if (GameUI.activeSelf)
         {
-           killedZombiesText.text = "Killed Zombies: " + killedZombies; 
-        }
-        else 
-        {
-            
-        }
+            killedZombiesText.text = "Killed Zombies: " + killedZombies; 
+        } 
+        if (isGameActive && Input.GetKeyDown(KeyCode.Escape))
+    {
+        ESCMenuVoid();
+    }
         
-        if (isGameActive == true && Input.GetKeyDown(KeyCode.Escape) || ESCMenuToggled ==true  && Input.GetKeyDown(KeyCode.Escape))
-        {
-            ESCMenuVoid();
-        }
     }
 
    public void StartButtonClicked()
@@ -73,7 +66,7 @@ public class UI : MonoBehaviour
         StartMenu.gameObject.SetActive(false);
         GameUI.SetActive(true);
         
-
+        
     }
    
    public void IndstillingerButtonClicked()
@@ -81,8 +74,6 @@ public class UI : MonoBehaviour
         Debug.Log("Indstillinger din nød");
         StartMenu.gameObject.SetActive(false);
         indstillingerMenu.gameObject.SetActive(true);
-        
-
     }
 
     public void indstillingerMenuBackClicked()
@@ -92,29 +83,27 @@ public class UI : MonoBehaviour
     }
 
     public void ESCMenuVoid()
+{
+    if (ESCMenuToggled == false)
     {
-
-        if (ESCMenuToggled == false)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            ESCMenuToggled = true;
-            isGameActive = false;
-            GameUI.gameObject.SetActive(false);
-            ESCMenu.gameObject.SetActive(true);
-
-        }
-
-        else if (ESCMenuToggled == true)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            ESCMenuToggled = false;
-            isGameActive = true;
-            GameUI.gameObject.SetActive(true);
-            ESCMenu.gameObject.SetActive(false);
-        }
-
+        Cursor.lockState = CursorLockMode.None;
+        ESCMenuToggled = true;
+        isGameActive = false;
+        GameUI.gameObject.SetActive(false);
+        ESCMenu.gameObject.SetActive(true);
+        indstillingerMenu.gameObject.SetActive(false); // added line
 
     }
+    else if (ESCMenuToggled == true)
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        ESCMenuToggled = false;
+        isGameActive = true;
+        GameUI.gameObject.SetActive(true);
+        ESCMenu.gameObject.SetActive(false);
+    }
+}
+
     public void ESCMenuQuitClicked()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -123,26 +112,36 @@ public class UI : MonoBehaviour
         ESCMenu.gameObject.SetActive(false);
         StartMenu.gameObject.SetActive(true);
 
+        // Call ResetGame() to reset the game objects to their initial state
+        ResetGame();
     }
-    public void ESCMenuResumeClicked()
+
+    private void ResetGame()
     {
-        GameUI.gameObject.SetActive(true);
-      ESCMenuToggled = false;  
-      ESCMenu.gameObject.SetActive(false);
-      isGameActive = true;
+        // Reset player position to the starting position
+        GameObject.Find("MaleFree1").GetComponent<PlayerController>().transform.position = new Vector3(0, 1, 0);
+
+        // Reset zombie spawner
+        GameObject.Find("Wave spawner").GetComponent<WaveSpawner>().ResetSpawner();
+
+        // Reset zombie kill count
+        killedZombies = 0;
+        killedZombiesText.text = "Killed Zombies: " + killedZombies;
     }
 
     public void EasyButtonClicked()
     {
-        difficulty = 1;
+        difficulty = 0.5f;
     }
+
     public void MediumButtonClicked()
     {
         difficulty = 1.5f;
+
     }
 
     public void HardButtonClicked()
     {
-        difficulty = 2;
+        difficulty = 3;
     }
 }
