@@ -78,7 +78,7 @@ public class WaveSpawner : MonoBehaviour
 {
     GenerateEnemies();
 
-    spawnInterval = (int)(waveDuration / (int)antalE); // cast antalE to int
+    spawnInterval = (int)(waveDuration / (int)antalE + 1); // cast antalE to int
     waveTimer = waveDuration;
 }
 

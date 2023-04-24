@@ -98,6 +98,10 @@ public class PlayerController : MonoBehaviour
 
         //HP
         hPText.text = "HP: " + currentHealth;
+        if (currentHealth <= 0)
+        {
+            PlayerDie();
+        }
        }
 
     }
@@ -108,7 +112,21 @@ public class PlayerController : MonoBehaviour
         jumpCooldown = false;
     }
 
-} 
+    void OnCollisionEnter(Collision other)
+    {
+    if (other.gameObject.CompareTag("Enemy"))
+        {
+        currentHealth = currentHealth - 30;
+        }
+    }
+
+    void PlayerDie()
+    {
+        Debug.Log("død");
+    }
+    
+}
+ 
 
 
 

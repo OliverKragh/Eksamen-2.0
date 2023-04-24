@@ -12,7 +12,7 @@ public class UI : MonoBehaviour
     
     public GameObject indstillingerMenu;
     
-    public float difficulty = 1.5f;
+    public float difficulty;
     
     public GameObject ESCMenu;
     public GameObject GameUI;
@@ -33,6 +33,7 @@ public class UI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        difficulty = 1.5f;
         isGameActive = false;
         MenuCamera.gameObject.SetActive(true);
         SpilCamera.gameObject.SetActive(false);

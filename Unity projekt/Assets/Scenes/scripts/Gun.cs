@@ -41,8 +41,18 @@ public class Gun : MonoBehaviour
        newPlayerPos = player.transform.position;
        newPlayerPos.y = newPlayerPos.y + 0.8999996f;
        
-        
-       
+      //SKIFT VÅBEN
+      if (Input.GetKeyDown(KeyCode.Alpha1))
+      {
+        AK47.SetActive(true);
+        M1911.SetActive(false);
+      }
+
+    if (Input.GetKeyDown(KeyCode.Alpha2))
+      {
+        AK47.SetActive(false);
+        M1911.SetActive(true);
+      }       
         
         //reload
         if (Input.GetKeyDown(KeyCode.R))

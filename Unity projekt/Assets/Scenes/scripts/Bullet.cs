@@ -45,9 +45,15 @@ private float playerViewX;
             Destroy(gameObject);
         }
 
-  
-    
     }
+    void OnCollisionEnter(Collision other)
+    {
+    if (other.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }
 
 
