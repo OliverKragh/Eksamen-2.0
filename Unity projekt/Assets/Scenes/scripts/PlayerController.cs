@@ -59,6 +59,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+     if(transform.position.y < -6)
+    {
+    transform.position = new Vector3(35.811f, 12.6f, 38.9f);
+    }       
         
         isGameActive = GameObject.Find("UItomt").GetComponent<UI>().isGameActive;
         

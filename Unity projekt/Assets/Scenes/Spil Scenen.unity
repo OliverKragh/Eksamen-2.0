@@ -4428,7 +4428,7 @@ MonoBehaviour:
   - {fileID: 1895709905}
   spawnIndex: 1
   areaRand: 2
-  waveDuration: 0
+  waveDuration: -20
   antalE: 10
   difficulty: 2
   spawnedEnemies: []

@@ -35,6 +35,7 @@ public class WaveSpawner : MonoBehaviour
     public void GameStart()
     {
         currWave = 0;
+        difficulty =  (int)GameObject.Find("UItomt").GetComponent<UI>().difficulty;
         GenerateWave(); 
     }
 
@@ -77,13 +78,13 @@ public class WaveSpawner : MonoBehaviour
  public void GenerateWave()
 {
     GenerateEnemies();
-
-    spawnInterval = (int)(waveDuration / (int)antalE + 1); // cast antalE to int
+    spawnInterval = (int)(waveDuration / (int)antalE); // cast antalE to int
     waveTimer = waveDuration;
 }
 
 public void GenerateEnemies()
 {
+    antalE = antalE * (int)GameObject.Find("UItomt").GetComponent<UI>().difficulty;
     List<GameObject> generatedEnemies = new List<GameObject>();
     for (int i = 0; i < (int)antalE; i++) // cast antalE to int
     {
@@ -92,8 +93,7 @@ public void GenerateEnemies()
     }
     enemiesToSpawn.Clear();
     enemiesToSpawn = generatedEnemies;
-    int currentDifficulty = (int)GameObject.Find("UItomt").GetComponent<UI>().difficulty;
-    antalE = (int)(antalE * currentDifficulty);
+
 }
 
 
