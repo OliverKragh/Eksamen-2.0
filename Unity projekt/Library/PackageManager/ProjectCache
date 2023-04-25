@@ -5,15 +5,15 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638109664300000000
-    m_Hash: 755808496
+      ticks: 638107659357482726
+    m_Hash: 1421907397
   m_LockFileStatus:
     m_FilePath: C:/Users/TOHA/Documents/GitHub/Eksamen-2.0/Unity projekt/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638109664300000000
+      ticks: 638109202035992988
     m_Hash: 623110053
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
