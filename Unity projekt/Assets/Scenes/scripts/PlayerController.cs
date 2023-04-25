@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
 
     private Rigidbody playerRB;
+   
     //KEYBOARD MOVEMENT
     public float horizontalInput;
     public float verticalInput;
@@ -59,7 +60,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     if(transform.position.y < -6)
+
+     if (transform.position.y < -6)
     {
     transform.position = new Vector3(35.811f, 12.6f, 38.9f);
     }       

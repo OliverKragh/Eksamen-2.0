@@ -67,7 +67,6 @@ public class UI : MonoBehaviour
         StartMenu.gameObject.SetActive(false);
         GameUI.SetActive(true);
         
-        
     }
    
    public void IndstillingerButtonClicked()
