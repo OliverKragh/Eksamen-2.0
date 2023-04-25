@@ -43,7 +43,15 @@ public class CameraController : MonoBehaviour
 
 
         //MAX KIG ---------------------------------------------------------------
-        currentRotation = transform.localRotation.x;
+       // currentRotation = transform.localRotation.eulerAngles.x;
+       // currentRotation = Mathf.Clamp(currentRotation, minRotation, maxRotation);
+       // transform.localRotation = Quaternion.Euler(currentRotation, 0, 0);
+
+       float rotationAmount = -Input.GetAxis("Mouse Y") * mouseVerticalSpeed;
+float newRotation = transform.localEulerAngles.x + rotationAmount;
+if (newRotation > 180) newRotation -= 360;
+newRotation = Mathf.Clamp(newRotation, minRotation, maxRotation);
+transform.localEulerAngles = new Vector3(newRotation, 0f, 0f);
         //fucking virker ik
         }
     }

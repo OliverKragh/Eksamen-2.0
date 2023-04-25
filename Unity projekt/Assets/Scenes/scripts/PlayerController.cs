@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public float mouseHorizontalSpeed = 2.0F;
 
     public TextMeshProUGUI hPText;
+    
     public double healthPoints = 100;
     public double currentHealth;
     public bool touchingTerrain ;
@@ -32,11 +33,14 @@ public class PlayerController : MonoBehaviour
     private bool isGameActive;
    private double difficulty;
 
+   public bool alive;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        alive = true;
         playerRB = GetComponent<Rigidbody>();
 
         //hPText = GameObject.Find("HPUI").GetComponent<TextMeshProUGUI>();
@@ -103,7 +107,7 @@ public class PlayerController : MonoBehaviour
 
         //HP
         hPText.text = "HP: " + currentHealth;
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && alive == true)
         {
             PlayerDie();
         }
@@ -127,7 +131,11 @@ public class PlayerController : MonoBehaviour
 
     void PlayerDie()
     {
-        Debug.Log("død");
+        alive = false;
+        GameObject.Find("UItomt").GetComponent<UI>().isGameActive = false;
+      
+
+        
     }
     
 }

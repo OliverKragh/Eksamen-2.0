@@ -26,8 +26,13 @@ public class UI : MonoBehaviour
     public Camera SpilCamera;
     public GameObject StartMenu;
 
+    public GameObject DeathMenu;
+    public TextMeshProUGUI deadKillsText;
+
     public int killedZombies;
     public TextMeshProUGUI killedZombiesText;
+
+    private bool alive;
     
 
     // Start is called before the first frame update
@@ -44,6 +49,12 @@ public class UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {  
+        alive = GameObject.Find("MaleFree1").GetComponent<PlayerController>().alive;
+        if (alive == false)
+        {
+           Death();
+
+        }
         
         if (GameUI.activeSelf)
         {
@@ -143,5 +154,14 @@ public class UI : MonoBehaviour
     public void HardButtonClicked()
     {
         difficulty = 3;
+    }
+
+    void Death()
+    {
+        DeathMenu.gameObject.SetActive(true);
+        deadKillsText.text = "You killed " + killedZombies + " zombies!";
+        Cursor.lockState = CursorLockMode.None;
+
+
     }
 }
