@@ -91,7 +91,7 @@ public class UI : MonoBehaviour
         isGameActive = false;
         GameUI.gameObject.SetActive(false);
         ESCMenu.gameObject.SetActive(true);
-        indstillingerMenu.gameObject.SetActive(false); // added line
+        indstillingerMenu.gameObject.SetActive(false); 
 
     }
     else if (ESCMenuToggled == true)

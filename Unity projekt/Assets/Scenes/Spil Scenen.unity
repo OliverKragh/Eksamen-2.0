@@ -4019,7 +4019,7 @@ MonoBehaviour:
   ESCMenuQuitButton: {fileID: 583542434}
   isGameActive: 0
   MenuCamera: {fileID: 1849910860}
-  SpilCamera: {fileID: 347672096}
+  SpilCamera: {fileID: 2018163475}
   StartMenu: {fileID: 588573062}
   killedZombies: 0
   killedZombiesText: {fileID: 624394431}
@@ -4069,6 +4069,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &2018163475 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3230023713912769615, guid: 97d5ddd29eb280c49912c6131c6ce8f8, type: 3}
+  m_PrefabInstance: {fileID: 3230023713576009947}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2038408880
 GameObject:
   m_ObjectHideFlags: 0
@@ -4461,6 +4466,10 @@ PrefabInstance:
     - target: {fileID: 3230023713333459480, guid: 97d5ddd29eb280c49912c6131c6ce8f8, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0.00024358724
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230023713912769610, guid: 97d5ddd29eb280c49912c6131c6ce8f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3230023713912769614, guid: 97d5ddd29eb280c49912c6131c6ce8f8, type: 3}
       propertyPath: player

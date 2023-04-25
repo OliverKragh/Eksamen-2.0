@@ -37,9 +37,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        //SKAL AKTIVERES NÅR SPILLET BEGYNDER IKKE NÅR VI ER I UI
-        
         playerRB = GetComponent<Rigidbody>();
 
         //hPText = GameObject.Find("HPUI").GetComponent<TextMeshProUGUI>();
@@ -63,13 +60,14 @@ public class PlayerController : MonoBehaviour
 
      if (transform.position.y < -6)
     {
-    transform.position = new Vector3(35.811f, 12.6f, 38.9f);
+        transform.position = new Vector3(35.811f, 12.6f, 38.9f);
     }       
         
         isGameActive = GameObject.Find("UItomt").GetComponent<UI>().isGameActive;
         
        if (isGameActive == true) 
        {
+
         Cursor.lockState = CursorLockMode.Locked;
         //KEYBOARD MOVEMENT
         horizontalInput = Input.GetAxis("Horizontal");
@@ -99,6 +97,7 @@ public class PlayerController : MonoBehaviour
 
     
         //CAMERA
+
         float h = mouseHorizontalSpeed * Input.GetAxis("Mouse X");
         transform.Rotate(0, h, 0);
 

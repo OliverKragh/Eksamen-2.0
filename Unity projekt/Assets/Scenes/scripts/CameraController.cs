@@ -34,7 +34,6 @@ public class CameraController : MonoBehaviour
         {
         isGameActive = GameObject.Find("UItomt").GetComponent<UI>().isGameActive;
         //MUS
-        
         float v = mouseVerticalSpeed * Input.GetAxis("Mouse Y");
         transform.Rotate(-v, 0, 0); 
      
