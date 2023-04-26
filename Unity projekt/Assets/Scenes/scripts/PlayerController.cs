@@ -35,12 +35,18 @@ public class PlayerController : MonoBehaviour
 
    public bool alive;
 
+    public bool healing;
+    
+    float curTime = 0;
+    float nextDamage = 1;
 
 
     // Start is called before the first frame update
     void Start()
     {
         alive = true;
+        healing = false;
+        
         playerRB = GetComponent<Rigidbody>();
 
         //hPText = GameObject.Find("HPUI").GetComponent<TextMeshProUGUI>();
@@ -61,10 +67,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentHealth <= (healthPoints / difficulty) - 5)
-        {
-            StartCoroutine(RegenHealth());
-        }
+        
 
      if (transform.position.y < -6)
     {
@@ -117,29 +120,52 @@ public class PlayerController : MonoBehaviour
         }
        }
 
+    if (currentHealth < (healthPoints / difficulty) && !healing)
+        {
+            StartCoroutine(RegenHealth());
+        }
+
     }
 
    IEnumerator JumpWait()
     {
         yield return new WaitForSeconds(1);
+
         jumpCooldown = false;
     }
 
-   void OnCollisionEnter(Collision other)
+   void OnCollisionStay(Collision other)
     {
-    if (other.gameObject.CompareTag("Enemy"))
-        {
-        currentHealth = currentHealth - 15 * difficulty;
-        }
-        
-      
-        
-   }
     
+    if (curTime <= 0 && other.gameObject.CompareTag("Enemy")) 
+        {
+            
+            currentHealth -= 5 * difficulty;
+            
+            curTime = nextDamage;
+            
+        } 
+        
+        else 
+        {
+            curTime -= Time.deltaTime;
+        }
+      
+    }
+    
+    
+
+
     IEnumerator RegenHealth()
   {
+        healing = true;
         yield return new WaitForSeconds(5);
-        currentHealth = currentHealth + 5;
+        while (currentHealth < (healthPoints / difficulty))
+        {
+            currentHealth = currentHealth + 5;
+            yield return new WaitForSeconds(1);
+        }
+        healing = false;
    }
     
 
