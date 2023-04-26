@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
     private Vector3 offset = new Vector3(0,0.9f,0);
 
     
-    public float maxRotation = 53f; 
+    public float maxRotation = 65f; 
     public float minRotation = -47f;
     private float currentRotation;
 

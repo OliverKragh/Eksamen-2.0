@@ -25,10 +25,8 @@ public class Gun : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         shootCooldown = false;
         ammoLeft = magazineSize;
-        //ammoLeftText = GameObject.Find("AmmoLeft").GetComponent<TextMeshProUGUI>();
        
     }
 
@@ -53,7 +51,6 @@ public class Gun : MonoBehaviour
         AK47.SetActive(false);
         M1911.SetActive(true);
       }       
-        
         //reload
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -65,9 +62,6 @@ public class Gun : MonoBehaviour
         {
             Shoot();
         } 
-        
-        
-
         // TEXT ----------------------------------------------
         if (ammoLeft > 0)
         {
@@ -111,13 +105,6 @@ public class Gun : MonoBehaviour
             Instantiate(bullet, newPlayerPos, bullet.transform.rotation);
             Debug.Log("SHOOTING"); 
         }
-      
-        
-    
-      
-
-
-        
         
     }
     

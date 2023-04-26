@@ -5,7 +5,7 @@ using UnityEngine;
 public class Zombie : MonoBehaviour
 {
 
-    public double startingHealth = 100;
+    private double startingHealth = 50;
     public double currentHealth;
     private Rigidbody zombieRB;
      private Transform playerRB;
