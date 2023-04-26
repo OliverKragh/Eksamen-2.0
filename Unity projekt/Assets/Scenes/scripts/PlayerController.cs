@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
     {
     if (other.gameObject.CompareTag("Enemy"))
         {
-        currentHealth = currentHealth - 30;
+        currentHealth = currentHealth - 15 * difficulty;
         }
         
         while (currentHealth <= (healthPoints / difficulty) - 5)
@@ -135,7 +135,7 @@ public class PlayerController : MonoBehaviour
         
     }
     
-    IEnumerator RegenHea1th()
+    IEnumerator RegenHealth()
     {
         yield return new WaitForSeconds(5);
         currentHealth = currentHealth + 5;
