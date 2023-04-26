@@ -142,12 +142,12 @@ public class UI : MonoBehaviour
 
     public void EasyButtonClicked()
     {
-        difficulty = 0.5f;
+        difficulty = 1;
     }
 
     public void MediumButtonClicked()
     {
-        difficulty = 1.5f;
+        difficulty = 2;
 
     }
 
