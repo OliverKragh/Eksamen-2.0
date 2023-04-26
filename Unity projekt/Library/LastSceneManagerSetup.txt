@@ -3,11 +3,3 @@ sceneSetups:
   isLoaded: 1
   isActive: 1
   isSubScene: 0
-- path: Assets/Scenes/UI Scene.unity
-  isLoaded: 0
-  isActive: 0
-  isSubScene: 0
-- path: Assets/Scenes/Kernel.unity
-  isLoaded: 0
-  isActive: 0
-  isSubScene: 0
