@@ -23,7 +23,7 @@ public class WaveSpawner : MonoBehaviour
 
     public List<GameObject> spawnedEnemies = new List<GameObject>();
 
-    private bool isGameRunning = true;
+    private bool isGameRunning;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +34,7 @@ public class WaveSpawner : MonoBehaviour
 
     public void GameStart()
     {
+    isGameRunning = true;
         currWave = 0;
         difficulty =  (int)GameObject.Find("UItomt").GetComponent<UI>().difficulty;
         GenerateWave(); 
