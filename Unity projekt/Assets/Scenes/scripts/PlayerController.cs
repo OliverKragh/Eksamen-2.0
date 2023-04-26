@@ -127,7 +127,20 @@ public class PlayerController : MonoBehaviour
         {
         currentHealth = currentHealth - 30;
         }
+        
+        while (currentHealth <= (healthPoints / difficulty) - 5)
+        {
+            StartCoroutine(RegenHealth())
+        }
+        
     }
+    
+    IEnumerator RegenHea1th()
+    {
+        yield return new WaitForSeconds(5);
+        currentHealth = currentHealth + 5;
+    }
+    
 
     void PlayerDie()
     {
