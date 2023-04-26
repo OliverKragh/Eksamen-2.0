@@ -28,7 +28,7 @@ public class Zombie : MonoBehaviour
         player = GameObject.Find("MaleFree1");
         difficulty = GameObject.Find("UItomt").GetComponent<UI>().difficulty;
         currentHealth = startingHealth * difficulty;
-        speed = speed * difficulty;
+        //speed = speed * difficulty;
     }
     
     // Update is called once per frame

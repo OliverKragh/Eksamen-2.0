@@ -61,6 +61,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentHealth <= (healthPoints / difficulty) - 5)
+        {
+            StartCoroutine(RegenHealth());
+        }
 
      if (transform.position.y < -6)
     {
@@ -121,25 +125,22 @@ public class PlayerController : MonoBehaviour
         jumpCooldown = false;
     }
 
-    void OnCollisionEnter(Collision other)
+   void OnCollisionEnter(Collision other)
     {
     if (other.gameObject.CompareTag("Enemy"))
         {
         currentHealth = currentHealth - 15 * difficulty;
         }
         
-        while (currentHealth <= (healthPoints / difficulty) - 5)
-        {
-            StartCoroutine(RegenHealth())
-        }
+      
         
-    }
+   }
     
     IEnumerator RegenHealth()
-    {
+  {
         yield return new WaitForSeconds(5);
         currentHealth = currentHealth + 5;
-    }
+   }
     
 
     void PlayerDie()
