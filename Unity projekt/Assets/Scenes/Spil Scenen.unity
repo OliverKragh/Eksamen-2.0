@@ -4679,7 +4679,7 @@ MonoBehaviour:
   - {fileID: 1306813062}
   - {fileID: 46454391}
   - {fileID: 1895709905}
-  spawnIndex: 1
+  spawnIndex: 0
   areaRand: 2
   waveDuration: -20
   antalE: 10
