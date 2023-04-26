@@ -38,7 +38,7 @@ public class UI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        difficulty = 1.5f;
+        difficulty = 2;
         isGameActive = false;
         MenuCamera.gameObject.SetActive(true);
         SpilCamera.gameObject.SetActive(false);
@@ -123,7 +123,7 @@ public class UI : MonoBehaviour
         ESCMenu.gameObject.SetActive(false);
         StartMenu.gameObject.SetActive(true);
 
-        // Call ResetGame() to reset the game objects to their initial state
+        // Starter ResetGame der nulstiller spillet
         ResetGame();
     }
 
