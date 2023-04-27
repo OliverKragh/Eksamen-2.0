@@ -52,18 +52,18 @@ public class Gun : MonoBehaviour
         AK47.SetActive(false);
         M1911.SetActive(true);
       }       
-        //reload
+        //LAD
         if (Input.GetKeyDown(KeyCode.R))
         {
             Reload();
         }
 
-         //shoot
+         //SKYD
         if (Input.GetMouseButton(0) )
         {
             Shoot();
         } 
-        // TEXT ----------------------------------------------
+        // TEKST ----------------------------------------------
         if (ammoLeft > 0)
         {
             ammoLeftText.text = "Ammo Left: " + ammoLeft;
@@ -111,8 +111,8 @@ public class Gun : MonoBehaviour
     
     void Reload()
     {
-         //reload
-        //RELOAD UDEN TOMT MAG
+         //LAD
+        //LAD UDEN TOMT MAG
         if (Input.GetKeyDown(KeyCode.R) && ammoLeft < magazineSize && ammoLeft > 0 && reloading == false) 
         {
             reloading = true;
@@ -120,7 +120,7 @@ public class Gun : MonoBehaviour
             Debug.Log("RELOADING");
         }
 
-        //RELOAD TOMT MAG
+        //LAD TOMT MAG
         if (ammoLeft == 0  && reloading == false) 
         {
             reloading = true;
@@ -150,7 +150,7 @@ public class Gun : MonoBehaviour
     {
         yield return new WaitForSeconds((60/firerate));
         shootCooldown = false;
-        Debug.Log("fucking skyd");
+      
         
     }
 
