@@ -38,6 +38,7 @@ public class Zombie : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
+        
         currentHealth = currentHealth - 50;
             Debug.Log("RAMT");
             if (currentHealth <= 0)
@@ -47,6 +48,7 @@ public class Zombie : MonoBehaviour
         Destroy(other);
         if (other.CompareTag("Bullet"))
         {
+            GetComponent<AudioSource>().Play();
             Debug.Log("SKU DA RAMT AF EN DIMS");
         }
     }

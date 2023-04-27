@@ -3016,8 +3016,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1371884910}
   - component: {fileID: 1371884909}
-  - component: {fileID: 1371884911}
   - component: {fileID: 1371884912}
+  - component: {fileID: 1371884913}
   m_Layer: 0
   m_Name: Skov baggrundslyd
   m_TagString: Untagged
@@ -3136,14 +3136,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &1371884911
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371884908}
-  m_Enabled: 1
 --- !u!82 &1371884912
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3240,6 +3232,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!81 &1371884913
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371884908}
+  m_Enabled: 1
 --- !u!1 &1419223476
 GameObject:
   m_ObjectHideFlags: 0

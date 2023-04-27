@@ -359,6 +359,7 @@
 "Assets/Scenes/scripts/Bullet.cs"
 "Assets/Scenes/scripts/CameraController.cs"
 "Assets/Scenes/scripts/Gun.cs"
+"Assets/Scenes/scripts/Lyd.cs"
 "Assets/Scenes/scripts/PlayerController.cs"
 "Assets/Scenes/scripts/UI.cs"
 "Assets/Scenes/scripts/WaveSpawner.cs"

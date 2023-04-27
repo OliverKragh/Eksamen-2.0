@@ -29,10 +29,15 @@ private float playerViewX;
             Destroy(gameObject);
         }
     }
-    void OnCollisionEnter(Collision other)
+  void OnCollisionEnter(Collision other)
     {
-    if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
+            AudioSource zombieAudioSource = other.gameObject.GetComponent<AudioSource>();
+            if (zombieAudioSource != null && zombieAudioSource.clip != null)
+            {
+                zombieAudioSource.Play();
+            }
             Destroy(gameObject);
         }
     }
