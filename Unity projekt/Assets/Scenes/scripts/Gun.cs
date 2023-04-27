@@ -38,7 +38,8 @@ public class Gun : MonoBehaviour
         {
        newPlayerPos = player.transform.position;
        newPlayerPos.y = newPlayerPos.y + 0.8999996f;
-       
+     
+
       //SKIFT VÅBEN
       if (Input.GetKeyDown(KeyCode.Alpha1))
       {
