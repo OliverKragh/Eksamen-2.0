@@ -27,8 +27,8 @@ public class PlayerController : MonoBehaviour
     private double difficulty;
     public bool alive;
     public bool healing;
-    float curTime = 0;
-    float nextDamage = 1;
+    float currentTime = 0;
+    float nextTime = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -96,14 +96,14 @@ public class PlayerController : MonoBehaviour
     }
    void OnCollisionStay(Collision other)
     {
-    if (curTime <= 0 && other.gameObject.CompareTag("Enemy")) 
+    if (currentTime <= 0 && other.gameObject.CompareTag("Enemy")) 
         {  
             currentHealth -= 5 * difficulty; 
-            curTime = nextDamage; 
+            currentTime = nextTime; 
         } 
         else 
         {
-            curTime -= Time.deltaTime;
+            currentTime -= Time.deltaTime;
         }
     }
     IEnumerator RegenHealth()

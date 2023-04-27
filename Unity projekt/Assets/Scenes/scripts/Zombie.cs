@@ -7,10 +7,11 @@ public class Zombie : MonoBehaviour
     private double startingHealth = 50;
     public double currentHealth;
     private Rigidbody zombieRB;
-    private Transform playerRB;
-    private GameObject player;  
+    private GameObject player;
+    //private float baseSpeed = 1;  
+    //private double zombieSpeedDouble;
     private float zombieSpeed = 1;
-    public int chance = 100;
+    public int chance = 50;
     private int number;
     private bool isGameActive;
     private double difficulty;
@@ -22,7 +23,8 @@ public class Zombie : MonoBehaviour
         player = GameObject.Find("MaleFree1");
         difficulty = GameObject.Find("UItomt").GetComponent<UI>().difficulty;
         currentHealth = startingHealth * difficulty;
-        //speed = speed * difficulty;
+        //zombieSpeedDouble = baseSpeed * difficulty;
+        
     }
     // Update is called once per frame
     void Update()
@@ -38,18 +40,16 @@ public class Zombie : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        
-        currentHealth = currentHealth - 50;
+        if (other.CompareTag("Bullet"))
+        {
+            GetComponent<AudioSource>().Play();
+            currentHealth = currentHealth - 50;
             Debug.Log("RAMT");
             if (currentHealth <= 0)
             {
                 Die();
             }
-        Destroy(other);
-        if (other.CompareTag("Bullet"))
-        {
-            GetComponent<AudioSource>().Play();
-            Debug.Log("SKU DA RAMT AF EN DIMS");
+            
         }
     }
     void Die()
@@ -58,10 +58,10 @@ public class Zombie : MonoBehaviour
         GameObject.Find("UItomt").GetComponent<UI>().killedZombies += 1;
         WaveSpawner spawner = FindObjectOfType<WaveSpawner>();
         spawner.spawnedEnemies.Remove(gameObject);
-        number = Random.Range(1, chance);
-        if (number == 1)
-        {
-            Debug.Log("POWERUP");
-        }
+        //number = Random.Range(1, chance);
+        //if (number == 1)
+        //{
+        //    Debug.Log("POWERUP");
+        //}
     }
 }
