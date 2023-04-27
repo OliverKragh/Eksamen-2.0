@@ -17,7 +17,7 @@ public class CameraController : MonoBehaviour
     //MOUSE SENS
     public float mouseVerticalSpeed = 2.0F;
 
-    //active
+   
     private bool isGameActive;
     
     // Start is called before the first frame update
@@ -42,10 +42,7 @@ public class CameraController : MonoBehaviour
         transform.position = player.transform.position + offset;
 
 
-        //MAX KIG ---------------------------------------------------------------
-       // currentRotation = transform.localRotation.eulerAngles.x;
-       // currentRotation = Mathf.Clamp(currentRotation, minRotation, maxRotation);
-       // transform.localRotation = Quaternion.Euler(currentRotation, 0, 0);
+       
 
        float rotationAmount = -Input.GetAxis("Mouse Y") * mouseVerticalSpeed;
 float newRotation = transform.localEulerAngles.x + rotationAmount;
