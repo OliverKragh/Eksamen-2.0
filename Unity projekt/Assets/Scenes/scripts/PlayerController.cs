@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody playerRB;
    
-    //KEYBOARD MOVEMENT
+    //KEYBOARD 
     public float horizontalInput;
     public float verticalInput;
     private float speed = 3;
@@ -49,9 +49,9 @@ public class PlayerController : MonoBehaviour
         
         playerRB = GetComponent<Rigidbody>();
 
-        //hPText = GameObject.Find("HPUI").GetComponent<TextMeshProUGUI>();
+      
         
-        //
+        
         jumpCooldown = false;
        
     }
@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
       
-        //SPRINT FRONT - BACK
+        //SPRINT FREM - BAGUD
         verticalInput = Input.GetAxis("Vertical");
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
         }
 
     
-        //CAMERA
+        //KAMERA
 
         float h = mouseHorizontalSpeed * Input.GetAxis("Mouse X");
         transform.Rotate(0, h, 0);
