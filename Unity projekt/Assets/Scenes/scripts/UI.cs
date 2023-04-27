@@ -129,13 +129,13 @@ public class UI : MonoBehaviour
 
     private void ResetGame()
     {
-        // Reset player position to the starting position
+        // Reset playerpos til startposition
         GameObject.Find("MaleFree1").GetComponent<PlayerController>().transform.position = new Vector3(0, 1, 0);
 
-        // Reset zombie spawner
+        // nulstil zombie spawner
         GameObject.Find("Wave spawner").GetComponent<WaveSpawner>().ResetSpawner();
 
-        // Reset zombie kill count
+        // Reset zombie kill tæller
         killedZombies = 0;
         killedZombiesText.text = "Killed Zombies: " + killedZombies;
     }
