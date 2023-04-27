@@ -8,30 +8,21 @@ public class WaveSpawner : MonoBehaviour
     public List<Enemy> enemies = new List<Enemy>();
     public int currWave;
     public List<GameObject> enemiesToSpawn = new List<GameObject>();
-
     public Transform[] spawnLocation; 
     public int spawnIndex;
     public float areaRand;
-
     public int waveDuration;
     private float waveTimer;
     private float spawnInterval;
     private float spawnTimer;
-
     public float antalE;
     public int difficulty;
-
     public List<GameObject> spawnedEnemies = new List<GameObject>();
-
     private bool isGameRunning;
-
     // Start is called before the first frame update
     void Start()
     {
-       
     }
-      
-
     public void GameStart()
     {
     isGameRunning = true;
@@ -39,7 +30,6 @@ public class WaveSpawner : MonoBehaviour
         difficulty =  (int)GameObject.Find("UItomt").GetComponent<UI>().difficulty;
         GenerateWave(); 
     }
-
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -66,7 +56,6 @@ public class WaveSpawner : MonoBehaviour
                 spawnTimer -= Time.fixedDeltaTime;
                 waveTimer -= Time.fixedDeltaTime;
             }
-
             if (waveTimer <= 0 && spawnedEnemies.Count <= 0)
             {
                 currWave++;
@@ -75,14 +64,12 @@ public class WaveSpawner : MonoBehaviour
             }
         }
     }
-
  public void GenerateWave()
 {
     GenerateEnemies();
     spawnInterval = (int)(waveDuration + 0.01f / (int)antalE + 0.01f); // cast antalE to int
     waveTimer = waveDuration;
 }
-
 public void GenerateEnemies()
 {
     antalE = antalE * (int)GameObject.Find("UItomt").GetComponent<UI>().difficulty;
@@ -94,10 +81,7 @@ public void GenerateEnemies()
     }
     enemiesToSpawn.Clear();
     enemiesToSpawn = generatedEnemies;
-
 }
-
-
     public void ResetSpawner()
     {
         currWave = 0;
@@ -111,9 +95,7 @@ public void GenerateEnemies()
         antalE = 1;
         SceneManager.LoadScene(0); // load the start menu scene
     }
-
 }
-
 [System.Serializable]
 public class Enemy
 {

@@ -11,31 +11,15 @@ private GameObject player;
 
 private float playerViewY;
 private float playerViewX;
-
-
-
-  
     // Start is called before the first frame update
     void Start()
     {
         playerViewX = GameObject.Find("PlayerView").GetComponent<Transform>().eulerAngles.x;
         playerViewY = GameObject.Find("MaleFree1").GetComponent<Transform>().eulerAngles.y;
-        
         transform.eulerAngles = new Vector3(playerViewX, playerViewY, transform.eulerAngles.z);
-
-
         BulletRB = GetComponent<Rigidbody>();
         BulletRB.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
-
-      
-
-      
     }
-
-    
-
-
-
     // Update is called once per frame
     void Update()
     {
@@ -44,7 +28,6 @@ private float playerViewX;
         {
             Destroy(gameObject);
         }
-
     }
     void OnCollisionEnter(Collision other)
     {

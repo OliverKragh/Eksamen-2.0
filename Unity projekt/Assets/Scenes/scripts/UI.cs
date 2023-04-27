@@ -9,32 +9,22 @@ public class UI : MonoBehaviour
 {
     public Button startKnap;
     public Button indstillingerKnap;
-    
     public GameObject indstillingerMenu;
-    
     public float difficulty;
-    
     public GameObject ESCMenu;
     public GameObject GameUI;
     public bool ESCMenuToggled;
-
     public Button ESCMenuResumeButton;
     public Button ESCMenuQuitButton;
     public bool isGameActive;
-
     public Camera MenuCamera;
     public Camera SpilCamera;
     public GameObject StartMenu;
-
     public GameObject DeathMenu;
     public TextMeshProUGUI deadKillsText;
-
     public int killedZombies;
     public TextMeshProUGUI killedZombiesText;
-
     private bool alive;
-    
-
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +35,6 @@ public class UI : MonoBehaviour
         killedZombies = 0;
         ESCMenuResumeButton.onClick.AddListener(ESCMenuVoid);
     }
-
     // Update is called once per frame
     void Update()
     {  
@@ -53,9 +42,7 @@ public class UI : MonoBehaviour
         if (alive == false)
         {
            Death();
-
         }
-        
         if (GameUI.activeSelf)
         {
             killedZombiesText.text = "Killed Zombies: " + killedZombies; 
@@ -64,9 +51,7 @@ public class UI : MonoBehaviour
     {
         ESCMenuVoid();
     }
-        
     }
-
    public void StartButtonClicked()
     {
         GameObject.Find("MaleFree1").GetComponent<PlayerController>().GameStart();
@@ -77,22 +62,18 @@ public class UI : MonoBehaviour
         SpilCamera.gameObject.SetActive(true);
         StartMenu.gameObject.SetActive(false);
         GameUI.SetActive(true);
-        
     }
-   
    public void IndstillingerButtonClicked()
     {
         Debug.Log("Indstillinger din nød");
         StartMenu.gameObject.SetActive(false);
         indstillingerMenu.gameObject.SetActive(true);
     }
-
     public void indstillingerMenuBackClicked()
     {
         StartMenu.gameObject.SetActive(true);
         indstillingerMenu.gameObject.SetActive(false);
     }
-
     public void ESCMenuVoid()
 {
     if (ESCMenuToggled == false)
@@ -103,7 +84,6 @@ public class UI : MonoBehaviour
         GameUI.gameObject.SetActive(false);
         ESCMenu.gameObject.SetActive(true);
         indstillingerMenu.gameObject.SetActive(false); 
-
     }
     else if (ESCMenuToggled == true)
     {
@@ -114,7 +94,6 @@ public class UI : MonoBehaviour
         ESCMenu.gameObject.SetActive(false);
     }
 }
-
     public void ESCMenuQuitClicked()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -122,46 +101,35 @@ public class UI : MonoBehaviour
         ESCMenuToggled = false;
         ESCMenu.gameObject.SetActive(false);
         StartMenu.gameObject.SetActive(true);
-
         // Starter ResetGame der nulstiller spillet
         ResetGame();
     }
-
     private void ResetGame()
     {
         // Reset playerpos til startposition
         GameObject.Find("MaleFree1").GetComponent<PlayerController>().transform.position = new Vector3(0, 1, 0);
-
         // nulstil zombie spawner
         GameObject.Find("Wave spawner").GetComponent<WaveSpawner>().ResetSpawner();
-
         // Reset zombie kill tæller
         killedZombies = 0;
         killedZombiesText.text = "Killed Zombies: " + killedZombies;
     }
-
     public void EasyButtonClicked()
     {
         difficulty = 1;
     }
-
     public void MediumButtonClicked()
     {
         difficulty = 2;
-
     }
-
     public void HardButtonClicked()
     {
         difficulty = 3;
     }
-
     void Death()
     {
         DeathMenu.gameObject.SetActive(true);
         deadKillsText.text = "You killed " + killedZombies + " zombies!";
         Cursor.lockState = CursorLockMode.None;
-
-
     }
 }

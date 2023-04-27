@@ -12,7 +12,6 @@ public class Gun : MonoBehaviour
     public int ammoLeft;
     public bool reloading;
     public float firerate;
-    
     public bool shootCooldown;
     public GameObject bullet;
     public TextMeshProUGUI ammoLeftText;
@@ -20,33 +19,26 @@ public class Gun : MonoBehaviour
     public GameObject M1911;
     Vector3 newPlayerPos;
     private bool isGameActive;
-    
-
     // Start is called before the first frame update
     void Start()
     {
         shootCooldown = false;
         ammoLeft = magazineSize;
-       
     }
-
     // Update is called once per frame
     void Update()
     {
-        isGameActive = GameObject.Find("UItomt").GetComponent<UI>().isGameActive;
-        if (isGameActive == true)
+            isGameActive = GameObject.Find("UItomt").GetComponent<UI>().isGameActive;
+    if (isGameActive == true)
         {
-       newPlayerPos = player.transform.position;
-       newPlayerPos.y = newPlayerPos.y + 0.8999996f;
-     
-
+            newPlayerPos = player.transform.position;
+            newPlayerPos.y = newPlayerPos.y + 0.8999996f;
       //SKIFT VÅBEN
-      if (Input.GetKeyDown(KeyCode.Alpha1))
+    if (Input.GetKeyDown(KeyCode.Alpha1))
       {
         AK47.SetActive(true);
         M1911.SetActive(false);
       }
-
     if (Input.GetKeyDown(KeyCode.Alpha2))
       {
         AK47.SetActive(false);
@@ -57,7 +49,6 @@ public class Gun : MonoBehaviour
         {
             Reload();
         }
-
          //SKYD
         if (Input.GetMouseButton(0) )
         {
@@ -78,17 +69,13 @@ public class Gun : MonoBehaviour
             ammoLeftText.text ="Reloading";
         }
         }
-
     }
-
      void Shoot()
     {
         if (ammoLeft == 0 )
         {
             Debug.Log("OUT OF AMMO");
         }
-      
-       
         if (AK47.activeSelf && ammoLeft > 0 && reloading == false && shootCooldown == false )
         {
             shootCooldown = true;
@@ -97,8 +84,6 @@ public class Gun : MonoBehaviour
             Instantiate(bullet, newPlayerPos, bullet.transform.rotation);
             Debug.Log("SHOOTING"); 
         }
-
-       
         if (M1911.activeSelf && ammoLeft > 0 && reloading == false && Input.GetMouseButtonDown(0))
         {
             shootCooldown = false;
@@ -106,9 +91,7 @@ public class Gun : MonoBehaviour
             Instantiate(bullet, newPlayerPos, bullet.transform.rotation);
             Debug.Log("SHOOTING"); 
         }
-        
     }
-    
     void Reload()
     {
          //LAD
@@ -119,7 +102,6 @@ public class Gun : MonoBehaviour
             StartCoroutine(ReloadWait());
             Debug.Log("RELOADING");
         }
-
         //LAD TOMT MAG
         if (ammoLeft == 0  && reloading == false) 
         {
@@ -128,9 +110,6 @@ public class Gun : MonoBehaviour
             Debug.Log("RELOADING");
         }
     }
-
-
-
     IEnumerator ReloadWait()
     {
         yield return new WaitForSeconds(1);
@@ -153,7 +132,5 @@ public class Gun : MonoBehaviour
       
         
     }
-
-    
 }
 
