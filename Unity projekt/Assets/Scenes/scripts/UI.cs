@@ -38,11 +38,7 @@ public class UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {  
-        alive = GameObject.Find("MaleFree1").GetComponent<PlayerController>().alive;
-        if (alive == false)
-        {
-           Death();
-        }
+        
         if (GameUI.activeSelf)
         {
             killedZombiesText.text = "Killed Zombies: " + killedZombies; 
@@ -126,7 +122,7 @@ public class UI : MonoBehaviour
     {
         difficulty = 3;
     }
-    void Death()
+    public void Death()
     {
         DeathMenu.gameObject.SetActive(true);
         deadKillsText.text = "You killed " + killedZombies + " zombies!";

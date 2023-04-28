@@ -121,6 +121,7 @@ public class PlayerController : MonoBehaviour
     {
         alive = false;
         GameObject.Find("UItomt").GetComponent<UI>().isGameActive = false;
+        GameObject.Find("UItomt").GetComponent<UI>().Death();
     }
 }
  
